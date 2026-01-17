@@ -1,0 +1,31 @@
+<!-- Collaboration Image Placeholder -->
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+  <rect width="800" height="600" fill="#f8fafc"/>
+  
+  <!-- Handshake concept -->
+  <g fill="#3b82f6" opacity="0.7">
+    <rect x="150" y="250" width="200" height="150" rx="20"/>
+    <rect x="450" y="250" width="200" height="150" rx="20"/>
+  </g>
+  
+  <!-- Connection line -->
+  <line x1="350" y1="325" x2="450" y2="325" stroke="#1e3a8a" stroke-width="20" opacity="0.8"/>
+  
+  <!-- People icons -->
+  <g fill="#ffffff" opacity="0.9">
+    <circle cx="250" cy="290" r="30"/>
+    <circle cx="550" cy="290" r="30"/>
+  </g>
+  
+  <!-- Collaboration symbols -->
+  <g stroke="#60a5fa" stroke-width="3" fill="none" opacity="0.5">
+    <circle cx="200" cy="150" r="40"/>
+    <circle cx="400" cy="100" r="50"/>
+    <circle cx="600" cy="150" r="40"/>
+    <line x1="240" y1="170" x2="360" y2="130"/>
+    <line x1="440" y1="130" x2="560" y2="170"/>
+  </g>
+  
+  <!-- Team elements -->
+  <circle cx="400" cy="480" r="60" fill="#1e3a8a" opacity="0.3"/>
+</svg>

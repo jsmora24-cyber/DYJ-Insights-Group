@@ -1,0 +1,29 @@
+<!-- Portfolio 3 - Marketing Analytics -->
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+  <rect width="800" height="600" fill="#1e293b"/>
+  
+  <!-- Dashboard mockup -->
+  <rect x="50" y="50" width="700" height="500" rx="10" fill="#ffffff"/>
+  
+  <!-- Header bar -->
+  <rect x="50" y="50" width="700" height="60" rx="10" fill="#ec4899"/>
+  <text x="100" y="90" font-family="Arial" font-size="24" fill="#ffffff" font-weight="bold">Marketing Analytics</text>
+  
+  <!-- Social media icons representation -->
+  <g fill="#f472b6" opacity="0.7">
+    <circle cx="150" cy="180" r="40"/>
+    <circle cx="280" cy="180" r="40"/>
+    <circle cx="410" cy="180" r="40"/>
+    <circle cx="540" cy="180" r="40"/>
+  </g>
+  
+  <!-- Metrics -->
+  <g fill="#ec4899" opacity="0.6">
+    <rect x="100" y="260" width="280" height="120" rx="8"/>
+    <rect x="420" y="260" width="280" height="120" rx="8"/>
+  </g>
+  
+  <!-- Trend line -->
+  <rect x="100" y="410" width="600" height="100" rx="8" fill="#8b5cf6" opacity="0.5"/>
+  <polyline points="130,480 220,450 310,460 400,420 490,440 580,410 670,430" stroke="#ffffff" stroke-width="5" fill="none"/>
+</svg>

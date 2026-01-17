@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="900" viewBox="0 0 1400 900" role="img" aria-label="Equipo profesional colaborando con dashboards">
+  <defs>
+    <linearGradient id="skyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f1923;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1a2a3a;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="windowLight" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffaa44;stop-opacity:0.4" />
+      <stop offset="100%" style="stop-color:#ff8833;stop-opacity:0.2" />
+    </linearGradient>
+    <radialGradient id="skinTone1" cx="50%" cy="40%">
+      <stop offset="0%" style="stop-color:#d4a574;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#c89968;stop-opacity:1" />
+    </radialGradient>
+    <radialGradient id="skinTone2" cx="50%" cy="40%">
+      <stop offset="0%" style="stop-color:#e8b8a0;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#d9a88e;stop-opacity:1" />
+    </radialGradient>
+    <radialGradient id="skinTone3" cx="50%" cy="40%">
+      <stop offset="0%" style="stop-color:#c09060;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#b07e50;stop-opacity:1" />
+    </radialGradient>
+    <linearGradient id="screenGlow" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#00d9ff;stop-opacity:0.9" />
+      <stop offset="100%" style="stop-color:#0088cc;stop-opacity:0.7" />
+    </linearGradient>
+    <filter id="softShadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
+      <feOffset dx="0" dy="4" result="offsetblur"/>
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.25"/>
+      </feComponentTransfer>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="6" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1400" height="900" fill="url(#skyGrad)"/>
+
+  <!-- Windows/city lights -->
+  <g opacity="0.3">
+    <rect x="50" y="50" width="200" height="350" rx="8" fill="#1a2a3a" stroke="#2a3a4a" stroke-width="2"/>
+    <rect x="1150" y="50" width="200" height="350" rx="8" fill="#1a2a3a" stroke="#2a3a4a" stroke-width="2"/>
+    
+    <!-- Window lights -->
+    <g fill="#ffaa44" opacity="0.5">
+      <rect x="80" y="80" width="50" height="50"/>
+      <rect x="150" y="80" width="50" height="50"/>
+      <rect x="80" y="160" width="50" height="50"/>
+      <rect x="150" y="160" width="50" height="50"/>
+      <rect x="80" y="240" width="50" height="50"/>
+      <rect x="150" y="240" width="50" height="50"/>
+    </g>
+    
+    <g fill="#ffaa44" opacity="0.5">
+      <rect x="1180" y="80" width="50" height="50"/>
+      <rect x="1250" y="80" width="50" height="50"/>
+      <rect x="1180" y="160" width="50" height="50"/>
+      <rect x="1250" y="160" width="50" height="50"/>
+      <rect x="1180" y="240" width="50" height="50"/>
+      <rect x="1250" y="240" width="50" height="50"/>
+    </g>
+  </g>
+
+  <!-- Table surface -->
+  <ellipse cx="700" cy="700" rx="650" ry="140" fill="#1a2a3a" opacity="0.8"/>
+  <rect x="100" y="600" width="1200" height="120" rx="20" fill="#2a3a4a" opacity="0.9"/>
+
+  <!-- Holographic screens -->
+  <!-- Main center screen -->
+  <g filter="url(#glow)">
+    <rect x="400" y="280" width="600" height="380" rx="15" fill="#0a1523" stroke="url(#screenGlow)" stroke-width="3" opacity="0.95"/>
+    
+    <!-- Screen content -->
+    <g opacity="0.8">
+      <!-- Title bar -->
+      <rect x="420" y="300" width="560" height="30" rx="4" fill="#00d9ff" opacity="0.15"/>
+      <text x="430" y="320" font-family="Arial, sans-serif" font-size="13" fill="#00d9ff" font-weight="600">Dashboard Análisis de Datos</text>
+      
+      <!-- Chart area -->
+      <path d="M 440 370 L 500 340 L 560 360 L 620 310 L 680 330 L 740 280 L 800 310 L 860 250" 
+            stroke="#00d9ff" stroke-width="3" fill="none" stroke-linecap="round"/>
+      <path d="M 440 370 L 500 340 L 560 360 L 620 310 L 680 330 L 740 280 L 800 310 L 860 250 L 860 500 L 440 500 Z" 
+            fill="#00d9ff" opacity="0.1"/>
+      
+      <!-- Bars -->
+      <rect x="450" y="420" width="30" height="80" rx="3" fill="#00d9ff" opacity="0.7"/>
+      <rect x="500" y="400" width="30" height="100" rx="3" fill="#00ffaa" opacity="0.7"/>
+      <rect x="550" y="410" width="30" height="90" rx="3" fill="#00d9ff" opacity="0.7"/>
+      <rect x="600" y="380" width="30" height="120" rx="3" fill="#ff6699" opacity="0.7"/>
+      <rect x="650" y="400" width="30" height="100" rx="3" fill="#00ffaa" opacity="0.7"/>
+      <rect x="700" y="390" width="30" height="110" rx="3" fill="#00d9ff" opacity="0.7"/>
+      <rect x="750" y="370" width="30" height="130" rx="3" fill="#ff9966" opacity="0.7"/>
+      <rect x="800" y="385" width="30" height="115" rx="3" fill="#00ffaa" opacity="0.7"/>
+      
+      <!-- KPI boxes -->
+      <rect x="450" y="520" width="100" height="60" rx="6" fill="#00d9ff" opacity="0.2"/>
+      <text x="500" y="535" font-family="Arial, sans-serif" font-size="11" fill="#00d9ff" text-anchor="middle">VENTAS</text>
+      <text x="500" y="560" font-family="Arial, sans-serif" font-size="18" fill="#ffffff" text-anchor="middle" font-weight="700">$2.4M</text>
+      
+      <rect x="580" y="520" width="100" height="60" rx="6" fill="#00ffaa" opacity="0.2"/>
+      <text x="630" y="535" font-family="Arial, sans-serif" font-size="11" fill="#00ffaa" text-anchor="middle">CLIENTES</text>
+      <text x="630" y="560" font-family="Arial, sans-serif" font-size="18" fill="#ffffff" text-anchor="middle" font-weight="700">1.8K</text>
+      
+      <rect x="710" y="520" width="100" height="60" rx="6" fill="#ff9966" opacity="0.2"/>
+      <text x="760" y="535" font-family="Arial, sans-serif" font-size="11" fill="#ff9966" text-anchor="middle">CRECIMIENTO</text>
+      <text x="760" y="560" font-family="Arial, sans-serif" font-size="18" fill="#ffffff" text-anchor="middle" font-weight="700">+24%</text>
+    </g>
+  </g>
+
+  <!-- Left tablet screen -->
+  <g filter="url(#softShadow)">
+    <rect x="150" y="400" width="220" height="300" rx="12" fill="#0a1523" stroke="#00a6e8" stroke-width="2" opacity="0.9"/>
+    <g opacity="0.7">
+      <circle cx="260" cy="480" r="55" fill="none" stroke="#00d9ff" stroke-width="14" stroke-dasharray="103 240" transform="rotate(-90 260 480)"/>
+      <circle cx="260" cy="480" r="55" fill="none" stroke="#00ffaa" stroke-width="14" stroke-dasharray="68 240" transform="rotate(30 260 480)"/>
+      <circle cx="260" cy="480" r="55" fill="none" stroke="#ff6699" stroke-width="14" stroke-dasharray="52 240" transform="rotate(100 260 480)"/>
+      <text x="260" y="495" font-family="Arial, sans-serif" font-size="26" fill="#ffffff" text-anchor="middle" font-weight="700">78%</text>
+    </g>
+  </g>
+
+  <!-- Right tablet screen -->
+  <g filter="url(#softShadow)">
+    <rect x="1030" y="400" width="220" height="300" rx="12" fill="#0a1523" stroke="#00a6e8" stroke-width="2" opacity="0.9"/>
+    <g opacity="0.7">
+      <rect x="1055" y="430" width="170" height="22" rx="3" fill="#00d9ff" opacity="0.2"/>
+      <line x1="1055" y1="440" x2="1220" y2="440" stroke="#00d9ff" stroke-width="2" opacity="0.8"/>
+      
+      <rect x="1055" y="470" width="170" height="22" rx="3" fill="#00ffaa" opacity="0.2"/>
+      <line x1="1055" y1="480" x2="1210" y2="480" stroke="#00ffaa" stroke-width="2" opacity="0.8"/>
+      
+      <rect x="1055" y="510" width="170" height="22" rx="3" fill="#00d9ff" opacity="0.2"/>
+      <line x1="1055" y1="520" x2="1215" y2="520" stroke="#00d9ff" stroke-width="2" opacity="0.8"/>
+      
+      <rect x="1055" y="550" width="170" height="22" rx="3" fill="#ff6699" opacity="0.2"/>
+      <line x1="1055" y1="560" x2="1200" y2="560" stroke="#ff6699" stroke-width="2" opacity="0.8"/>
+      
+      <rect x="1055" y="590" width="170" height="22" rx="3" fill="#00ffaa" opacity="0.2"/>
+      <line x1="1055" y1="600" x2="1210" y2="600" stroke="#00ffaa" stroke-width="2" opacity="0.8"/>
+    </g>
+  </g>
+
+  <!-- PEOPLE - More realistic proportions and details -->
+  
+  <!-- Person 1 - Woman (Left, with laptop) -->
+  <g opacity="0.95">
+    <!-- Body -->
+    <ellipse cx="250" cy="580" rx="32" ry="48" fill="#4a4a4a"/>
+    <!-- Head -->
+    <circle cx="250" cy="510" r="28" fill="url(#skinTone2)"/>
+    <!-- Hair -->
+    <path d="M 222 490 Q 250 470, 278 490 Q 278 510, 250 530 Q 222 510, 222 490" fill="#3a2a1a"/>
+    <!-- Face details -->
+    <circle cx="242" cy="505" r="3" fill="#2a1a0a"/>
+    <circle cx="258" cy="505" r="3" fill="#2a1a0a"/>
+    <path d="M 250 515 L 250 520" stroke="#8a6a5a" stroke-width="1.5"/>
+    <path d="M 242 525 Q 250 528, 258 525" stroke="#8a6a5a" stroke-width="1.5"/>
+    <!-- Arms -->
+    <ellipse cx="225" cy="570" rx="16" ry="45" fill="url(#skinTone2)" transform="rotate(-30 225 570)"/>
+    <ellipse cx="275" cy="570" rx="16" ry="45" fill="url(#skinTone2)" transform="rotate(30 275 570)"/>
+    <!-- Hands -->
+    <circle cx="210" cy="605" r="10" fill="url(#skinTone2)"/>
+    <circle cx="290" cy="605" r="10" fill="url(#skinTone2)"/>
+  </g>
+
+  <!-- Person 2 - Man with glasses (left-center) -->
+  <g opacity="0.95">
+    <!-- Body (white shirt) -->
+    <ellipse cx="380" cy="570" rx="35" ry="50" fill="#f5f5f5"/>
+    <!-- Head -->
+    <circle cx="380" cy="500" r="30" fill="url(#skinTone1)"/>
+    <!-- Hair -->
+    <path d="M 350 480 Q 380 460, 410 480 Q 410 510, 380 520 Q 350 510, 350 480" fill="#2a1a0a"/>
+    <!-- Glasses -->
+    <circle cx="365" cy="500" r="8" fill="none" stroke="#333333" stroke-width="2"/>
+    <circle cx="395" cy="500" r="8" fill="none" stroke="#333333" stroke-width="2"/>
+    <line x1="373" y1="500" x2="387" y2="500" stroke="#333333" stroke-width="1.5"/>
+    <!-- Face -->
+    <circle cx="365" cy="500" r="2.5" fill="#1a1a1a"/>
+    <circle cx="395" cy="500" r="2.5" fill="#1a1a1a"/>
+    <path d="M 380 510 L 380 515" stroke="#8a6a5a" stroke-width="1.5"/>
+    <path d="M 370 520 Q 380 523, 390 520" stroke="#8a6a5a" stroke-width="1.5"/>
+    <!-- Arms -->
+    <ellipse cx="355" cy="560" rx="17" ry="48" fill="#f5f5f5" transform="rotate(-25 355 560)"/>
+    <ellipse cx="405" cy="560" rx="17" ry="48" fill="#f5f5f5" transform="rotate(25 405 560)"/>
+    <!-- Hands -->
+    <circle cx="340" cy="595" r="11" fill="url(#skinTone1)"/>
+    <circle cx="420" cy="595" r="11" fill="url(#skinTone1)"/>
+  </g>
+
+  <!-- Person 3 - Man (center, pointing) -->
+  <g opacity="0.98">
+    <!-- Body (blue shirt) -->
+    <ellipse cx="700" cy="560" rx="38" ry="52" fill="#1a5a8a"/>
+    <!-- Head -->
+    <circle cx="700" cy="485" r="32" fill="url(#skinTone3)"/>
+    <!-- Hair -->
+    <path d="M 668 465 Q 700 442, 732 465 Q 732 495, 700 510 Q 668 495, 668 465" fill="#1a0a00"/>
+    <!-- Face -->
+    <circle cx="690" cy="485" r="3" fill="#1a1a1a"/>
+    <circle cx="710" cy="485" r="3" fill="#1a1a1a"/>
+    <path d="M 700 500 L 700 505" stroke="#8a6a5a" stroke-width="1.5"/>
+    <path d="M 688 515 Q 700 519, 712 515" stroke="#8a6a5a" stroke-width="1.5"/>
+    <!-- Arms - one pointing -->
+    <ellipse cx="668" cy="560" rx="18" ry="50" fill="url(#skinTone3)" transform="rotate(-35 668 560)"/>
+    <ellipse cx="732" cy="560" rx="18" ry="52" fill="url(#skinTone3)" transform="rotate(45 732 560)"/>
+    <!-- Hand pointing -->
+    <circle cx="760" cy="480" r="12" fill="url(#skinTone3)"/>
+    <!-- Other hand -->
+    <circle cx="645" cy="600" r="12" fill="url(#skinTone3)"/>
+  </g>
+
+  <!-- Person 4 - Woman (right-center) -->
+  <g opacity="0.95">
+    <!-- Body (gray/blouse) -->
+    <ellipse cx="960" cy="575" rx="34" ry="49" fill="#d0d0d0"/>
+    <!-- Head -->
+    <circle cx="960" cy="505" r="29" fill="url(#skinTone2)"/>
+    <!-- Hair -->
+    <path d="M 931 485 Q 960 465, 989 485 Q 989 510, 960 528 Q 931 510, 931 485" fill="#4a2a1a"/>
+    <!-- Face -->
+    <circle cx="950" cy="503" r="2.8" fill="#1a1a1a"/>
+    <circle cx="970" cy="503" r="2.8" fill="#1a1a1a"/>
+    <path d="M 960 512 L 960 517" stroke="#8a6a5a" stroke-width="1.5"/>
+    <path d="M 948 524 Q 960 527, 972 524" stroke="#8a6a5a" stroke-width="1.5"/>
+    <!-- Arms -->
+    <ellipse cx="933" cy="570" rx="16" ry="47" fill="url(#skinTone2)" transform="rotate(-30 933 570)"/>
+    <ellipse cx="987" cy="570" rx="16" ry="47" fill="url(#skinTone2)" transform="rotate(30 987 570)"/>
+    <!-- Hands -->
+    <circle cx="918" cy="605" r="10" fill="url(#skinTone2)"/>
+    <circle cx="1002" cy="605" r="10" fill="url(#skinTone2)"/>
+  </g>
+
+  <!-- Person 5 - Man (right) -->
+  <g opacity="0.95">
+    <!-- Body (dark suit) -->
+    <ellipse cx="1100" cy="580" rx="36" ry="50" fill="#2a2a3a"/>
+    <!-- Head -->
+    <circle cx="1100" cy="510" r="31" fill="url(#skinTone1)"/>
+    <!-- Hair -->
+    <path d="M 1069 490 Q 1100 468, 1131 490 Q 1131 518, 1100 535 Q 1069 518, 1069 490" fill="#1a1a1a"/>
+    <!-- Face -->
+    <circle cx="1089" cy="508" r="3" fill="#1a1a1a"/>
+    <circle cx="1111" cy="508" r="3" fill="#1a1a1a"/>
+    <path d="M 1100 520 L 1100 525" stroke="#8a6a5a" stroke-width="1.5"/>
+    <path d="M 1088 532 Q 1100 535, 1112 532" stroke="#8a6a5a" stroke-width="1.5"/>
+    <!-- Arms -->
+    <ellipse cx="1074" cy="570" rx="17" ry="49" fill="url(#skinTone1)" transform="rotate(-28 1074 570)"/>
+    <ellipse cx="1126" cy="570" rx="17" ry="49" fill="url(#skinTone1)" transform="rotate(28 1126 570)"/>
+    <!-- Hands -->
+    <circle cx="1058" cy="610" r="11" fill="url(#skinTone1)"/>
+    <circle cx="1142" cy="610" r="11" fill="url(#skinTone1)"/>
+  </g>
+
+  <!-- Light reflections on table -->
+  <ellipse cx="700" cy="680" rx="550" ry="100" fill="#00d9ff" opacity="0.04"/>
+  <ellipse cx="500" cy="650" rx="200" ry="50" fill="#00ffaa" opacity="0.06"/>
+  <ellipse cx="900" cy="660" rx="220" ry="55" fill="#00a6e8" opacity="0.06"/>
+</svg>

@@ -1,0 +1,34 @@
+<!-- Innovation Image Placeholder -->
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+  <rect width="800" height="600" fill="#f8fafc"/>
+  
+  <defs>
+    <linearGradient id="innGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e3a8a;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:0.8" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Light bulb icon -->
+  <circle cx="400" cy="250" r="80" fill="url(#innGrad)"/>
+  <circle cx="400" cy="250" r="60" fill="#ffffff" opacity="0.3"/>
+  <rect x="380" y="330" width="40" height="60" rx="5" fill="url(#innGrad)"/>
+  
+  <!-- Innovation rays -->
+  <g stroke="#3b82f6" stroke-width="4" opacity="0.5">
+    <line x1="400" y1="150" x2="400" y2="100"/>
+    <line x1="480" y1="180" x2="520" y2="140"/>
+    <line x1="510" y1="250" x2="560" y2="250"/>
+    <line x1="480" y1="320" x2="520" y2="360"/>
+    <line x1="320" y1="180" x2="280" y2="140"/>
+    <line x1="290" y1="250" x2="240" y2="250"/>
+    <line x1="320" y1="320" x2="280" y2="360"/>
+  </g>
+  
+  <!-- Data charts overlay -->
+  <g opacity="0.3">
+    <rect x="100" y="450" width="150" height="100" rx="10" fill="#1e3a8a"/>
+    <rect x="325" y="450" width="150" height="100" rx="10" fill="#3b82f6"/>
+    <rect x="550" y="450" width="150" height="100" rx="10" fill="#60a5fa"/>
+  </g>
+</svg>

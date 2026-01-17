@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Servicios de Power BI y Business Intelligence - D&J Insights Group">
+    <title>Sobre Nosotros | D&J Insights Group</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <div class="container nav-container">
+                <div class="logo">
+                    <img class="logo-img logo-img-light" src="images/logo2.png" alt="D&J Insights Group Logo">
+                    <img class="logo-img logo-img-dark" src="images/logo.png" alt="D&J Insights Group Logo">
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link" data-translate="nav_inicio">Inicio</a></li>
+                    <li><a href="servicios.html" class="nav-link" data-translate="nav_servicios">Servicios</a></li>
+                    <li><a href="portafolio.html" class="nav-link" data-translate="nav_casos">Proyectos</a></li>
+                    <li><a href="acerca-de.html" class="nav-link active" data-translate="nav_sobre">Sobre nosotros</a></li>
+                    <li><a href="politicas.html" class="nav-link" data-translate="nav_politicas">Políticas</a></li>
+                    <li><a href="contacto.html" class="nav-link btn-contact" data-translate="nav_contacto">Contacto</a></li>
+                </ul>
+                <input class="theme-toggle-input" id="themeToggle" type="checkbox" aria-label="Cambiar tema" />
+                <details class="theme-menu" id="themeMenu">
+                    <summary class="theme-menu-btn" id="themeMenuBtn" aria-label="Tema" title="Tema">
+                        <i class="fas fa-gear" aria-hidden="true"></i>
+                    </summary>
+                    <div class="theme-menu-panel">
+                        <button type="button" class="theme-menu-item" data-theme="light">
+                            <i class="fas fa-sun" aria-hidden="true"></i>
+                            <span data-translate="theme_light">Modo claro</span>
+                        </button>
+                        <button type="button" class="theme-menu-item" data-theme="dark">
+                            <i class="fas fa-moon" aria-hidden="true"></i>
+                            <span data-translate="theme_dark">Modo oscuro</span>
+                        </button>
+                    </div>
+                </details>
+                <div class="language-switcher">
+                    <button class="lang-dropdown-btn" id="langDropdownBtn">
+                        <span class="flag" id="currentFlag">🇨🇴</span>
+                        <span class="lang-code" id="currentLang">ES</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="lang-dropdown-menu" id="langDropdownMenu">
+                        <button class="lang-option" data-lang="es">
+                            <span class="flag">🇨🇴</span>
+                            <span>Español</span>
+                        </button>
+                        <button class="lang-option" data-lang="en">
+                            <span class="flag">🇺🇸</span>
+                            <span>English</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="page-header">
+        <div class="container">
+            <h1 data-translate="about_page_title">Sobre Nosotros</h1>
+            <p data-translate="about_page_subtitle">Conoce al equipo detrás de D&J Insights Group</p>
+        </div>
+    </section>
+
+    <section class="about-story">
+        <div class="container">
+            <div class="story-content">
+                <div class="story-text">
+                    <h2 data-translate="about_story_title">¿Quiénes somos?</h2>
+                    <p data-translate="about_story_p1">Somos un <strong>equipo de expertos apasionados por los datos</strong>, dedicados a la excelencia en cada proyecto que emprendemos. Nos especializamos en convertir desafíos complejos de datos en oportunidades claras y accionables que impulsan el crecimiento sostenible de su negocio.</p>
+                    <p data-translate="about_story_p2">Ofrecemos <strong>soluciones personalizadas de análisis y visualización de datos</strong>, desde dashboards interactivos hasta reportes ejecutivos, diseñadas específicamente para satisfacer las necesidades únicas de cada cliente.</p>
+                    <p data-translate="about_story_p3">Nuestro <strong>enfoque colaborativo</strong> nos permite integrarnos perfectamente con su equipo, entendiendo a fondo su industria y objetivos para entregar soluciones que realmente generen impacto.</p>
+                </div>
+                <div class="story-image">
+                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80" alt="Equipo D&J Insights Group">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="mission">
+        <div class="container">
+            <h2 class="section-title" data-translate="about_pillars_title">Nuestra Misión</h2>
+            <p class="section-tagline" data-translate="about_mission_tagline">Convertir datos en información clara y estrategica.</p>
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-image">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80" alt="Innovación Constante">
+                    </div>
+                    <div class="value-content">
+                        <h3><i class="fas fa-lightbulb"></i> Innovación Constante</h3>
+                        <p>Nos mantenemos a la vanguardia de las últimas tecnologías y tendencias en análisis de datos, implementando soluciones innovadoras que anticipan las necesidades del mercado.</p>
+                    </div>
+                </div>
+                <div class="value-card reverse">
+                    <div class="value-image">
+                        <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&q=80" alt="Calidad y Confiabilidad">
+                    </div>
+                    <div class="value-content">
+                        <h3><i class="fas fa-shield-alt"></i> Calidad y Confiabilidad</h3>
+                        <p>Ejecutamos cada proyecto con los más altos estándares de calidad, entregando soluciones precisas, robustas y confiables que superan expectativas.</p>
+                    </div>
+                </div>
+                <div class="value-card">
+                    <div class="value-image">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80" alt="Resultados Medibles">
+                    </div>
+                    <div class="value-content">
+                        <h3><i class="fas fa-chart-bar"></i> Resultados Medibles</h3>
+                        <p>Nos enfocamos en generar impacto real y tangible. Cada solución proporciona métricas claras que demuestran el valor de nuestro trabajo.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="vision">
+        <div class="container">
+            <h2 class="section-title" data-translate="vision_title">Nuestra Visión</h2>
+            <p class="section-tagline" data-translate="vision_tagline">Liderar decisiones empresariales basadas en datos.</p>
+            <div class="vision-intro">
+                <p data-translate="vision_p1">Aspiramos a ser más que un proveedor de servicios; queremos ser reconocidos como el aliado estratégico indispensable para empresas que buscan dominar el manejo de la información. Nuestra visión es liderar el mercado, no solo por la calidad de nuestras soluciones, sino por el valor agregado que estas generan.</p>
+                <p data-translate="vision_p2">Constantemente exploramos y adoptamos tecnologías avanzadas para ofrecer soluciones que no solo resuelvan los desafíos actuales, sino que también preparen a nuestros clientes para el futuro. Queremos que, al pensar en inteligencia de negocios y optimización basada en datos, el nombre D&amp;J Insights Group sea sinónimo de excelencia y progreso. Su crecimiento continuo es el pilar de nuestra visión.</p>
+            </div>
+
+            <div class="values-grid" aria-label="Pilares de nuestra visión">
+                <div class="value-card">
+                    <div class="value-image">
+                        <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=900&q=80" alt="Alianza estratégica">
+                    </div>
+                    <div class="value-content">
+                        <h3><i class="fas fa-handshake"></i> <span data-translate="vision_item1">Alianza Estratégica</span></h3>
+                        <p data-translate="vision_item1_desc">Construimos relaciones de largo plazo, trabajando como parte de tu equipo para alcanzar objetivos claros y medibles.</p>
+                    </div>
+                </div>
+
+                <div class="value-card">
+                    <div class="value-image">
+                        <img src="https://images.unsplash.com/photo-1556157382-97eda2d62296?w=900&q=80" alt="Manejo de información">
+                    </div>
+                    <div class="value-content">
+                        <h3><i class="fas fa-database"></i> <span data-translate="vision_item4">Manejo de Información</span></h3>
+                        <p data-translate="vision_item4_desc">Ordenamos, conectamos y estructuramos tus datos para que la información sea confiable, accesible y accionable.</p>
+                    </div>
+                </div>
+
+                <div class="value-card">
+                    <div class="value-image">
+                        <img src="https://images.unsplash.com/photo-1526378722484-bd91ca387e72?w=900&q=80" alt="Tecnología avanzada">
+                    </div>
+                    <div class="value-content">
+                        <h3><i class="fas fa-microchip"></i> <span data-translate="vision_item5">Tecnología Avanzada</span></h3>
+                        <p data-translate="vision_item5_desc">Adoptamos herramientas modernas y buenas prácticas para entregar soluciones ágiles, seguras y escalables.</p>
+                    </div>
+                </div>
+
+                <div class="value-card">
+                    <div class="value-image">
+                        <img src="https://images.unsplash.com/photo-1526948128573-703ee1aeb6fa?w=900&q=80" alt="Reconocimiento">
+                    </div>
+                    <div class="value-content">
+                        <h3><i class="fas fa-award"></i> <span data-translate="vision_item2">Reconocimiento</span></h3>
+                        <p data-translate="vision_item2_desc">Buscamos ser un referente por la calidad, la claridad y el impacto real que generamos con cada proyecto.</p>
+                    </div>
+                </div>
+
+                <div class="value-card">
+                    <div class="value-image">
+                        <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=900&q=80" alt="Valor agregado">
+                    </div>
+                    <div class="value-content">
+                        <h3><i class="fas fa-gem"></i> <span data-translate="vision_item6">Valor Agregado</span></h3>
+                        <p data-translate="vision_item6_desc">Transformamos datos en decisiones: insights claros, visuales y útiles para mejorar procesos y resultados.</p>
+                    </div>
+                </div>
+
+                <div class="value-card">
+                    <div class="value-image">
+                        <img src="https://images.unsplash.com/photo-1559526324-593bc073d938?w=900&q=80" alt="Crecimiento sostenible">
+                    </div>
+                    <div class="value-content">
+                        <h3><i class="fas fa-seedling"></i> <span data-translate="vision_item3">Crecimiento Sostenible</span></h3>
+                        <p data-translate="vision_item3_desc">Impulsamos una mejora continua basada en datos, ayudando a tu organización a crecer con foco y estabilidad.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="why-choose">
+        <div class="container">
+            <h2 class="section-title" data-translate="why_choose_title">¿Por qué elegirnos?</h2>
+            <div class="reasons-grid">
+                <div class="reason-card">
+                    <div class="reason-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3 data-translate="reason1_title">Expertos Dedicados</h3>
+                    <p data-translate="reason1_desc">Un equipo especializado y apasionado por los datos, comprometido con la excelencia en cada proyecto y en constante actualización de conocimientos.</p>
+                </div>
+                <div class="reason-card">
+                    <div class="reason-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3 data-translate="reason2_title">Soporte Inquebrantable</h3>
+                    <p data-translate="reason2_desc">No solo entregamos el proyecto, te acompañamos después para garantizar que saques el máximo provecho.</p>
+                </div>
+                <div class="reason-card">
+                    <div class="reason-icon">
+                        <i class="fas fa-microchip"></i>
+                    </div>
+                    <h3 data-translate="reason3_title">Tecnología de Vanguardia</h3>
+                    <p data-translate="reason3_desc">Utilizamos las herramientas más avanzadas en análisis de datos para preparar a nuestros clientes para el futuro digital.</p>
+                </div>
+                <div class="reason-card">
+                    <div class="reason-icon">
+                        <i class="fas fa-puzzle-piece"></i>
+                    </div>
+                    <h3 data-translate="reason4_title">Soluciones Personalizadas</h3>
+                    <p data-translate="reason4_desc">Cada empresa es única. Diseñamos soluciones adaptadas específicamente a sus objetivos, industria y desafíos particulares.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="container cta-content">
+            <h2>¿Listo para transformar tus datos?</h2>
+            <p>Contáctanos y descubre cómo podemos ayudarte</p>
+            <a href="contacto.html" class="btn btn-primary btn-large">Solicita una consulta gratuita</a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <div class="footer-logo">
+                        <img class="footer-logo-img footer-logo-img-light" src="images/logo2.png" alt="D&J Insights Group">
+                        <img class="footer-logo-img footer-logo-img-dark" src="images/logo.png" alt="D&J Insights Group">
+                    </div>
+                    <div class="social-links">
+                        <a href="https://wa.me/573223459359" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://www.instagram.com/dyj_insights_group?igsh=MWY1M21vdWNnMTNoYQ%3D%3D&utm_source=qr" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.facebook.com/profile.php?id=61581581612762" target="_blank"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.linkedin.com/company/d-j-insights-group/?viewAsMember=true" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4>Navegación</h4>
+                    <ul>
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="servicios.html">Servicios</a></li>
+                        <li><a href="portafolio.html">Casos de éxito</a></li>
+                        <li><a href="acerca-de.html">Sobre nosotros</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Contacto</h4>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-phone"></i> +57 322 345 9359</li>
+                        <li><i class="fas fa-envelope"></i> contacto@dyjinsights.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Bogotá, Colombia</li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="politicas.html">Política de Privacidad</a></li>
+                        <li><a href="politicas.html">Política de Servicio</a></li>
+                        <li><a href="politicas.html">Términos y Condiciones</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 D&J Insights Group. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/translations.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>

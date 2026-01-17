@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Servicios de Power BI y Business Intelligence - D&J Insights Group">
+    <title>Portafolio | D&J Insights Group</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <div class="container nav-container">
+                <div class="logo">
+                    <img class="logo-img logo-img-light" src="images/logo2.png" alt="D&J Insights Group Logo">
+                    <img class="logo-img logo-img-dark" src="images/logo.png" alt="D&J Insights Group Logo">
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link" data-translate="nav_inicio">Inicio</a></li>
+                    <li><a href="servicios.html" class="nav-link" data-translate="nav_servicios">Servicios</a></li>
+                    <li><a href="portafolio.html" class="nav-link active" data-translate="nav_casos">Proyectos</a></li>
+                    <li><a href="acerca-de.html" class="nav-link" data-translate="nav_sobre">Sobre nosotros</a></li>
+                    <li><a href="politicas.html" class="nav-link" data-translate="nav_politicas">Políticas</a></li>
+                    <li><a href="contacto.html" class="nav-link btn-contact" data-translate="nav_contacto">Contacto</a></li>
+                </ul>
+                <input class="theme-toggle-input" id="themeToggle" type="checkbox" aria-label="Cambiar tema" />
+                <details class="theme-menu" id="themeMenu">
+                    <summary class="theme-menu-btn" id="themeMenuBtn" aria-label="Tema" title="Tema">
+                        <i class="fas fa-gear" aria-hidden="true"></i>
+                    </summary>
+                    <div class="theme-menu-panel">
+                        <button type="button" class="theme-menu-item" data-theme="light">
+                            <i class="fas fa-sun" aria-hidden="true"></i>
+                            <span data-translate="theme_light">Modo claro</span>
+                        </button>
+                        <button type="button" class="theme-menu-item" data-theme="dark">
+                            <i class="fas fa-moon" aria-hidden="true"></i>
+                            <span data-translate="theme_dark">Modo oscuro</span>
+                        </button>
+                    </div>
+                </details>
+                <div class="language-switcher">
+                    <button class="lang-dropdown-btn" id="langDropdownBtn">
+                        <span class="flag" id="currentFlag">🇨🇴</span>
+                        <span class="lang-code" id="currentLang">ES</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="lang-dropdown-menu" id="langDropdownMenu">
+                        <button class="lang-option" data-lang="es">
+                            <span class="flag">🇨🇴</span>
+                            <span>Español</span>
+                        </button>
+                        <button class="lang-option" data-lang="en">
+                            <span class="flag">🇺🇸</span>
+                            <span>English</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="page-header">
+        <div class="container">
+            <h1 data-translate="portfolio_title">Portafolio</h1>
+            <p data-translate="portfolio_subtitle">Descubre cómo hemos ayudado a empresas a transformar sus datos</p>
+        </div>
+    </section>
+
+    <section class="portfolio">
+        <div class="container">
+            <div class="portfolio-carousel" data-carousel="portfolio">
+                <div class="portfolio-viewport" id="portfolioViewport" aria-label="Carrusel de casos de éxito" tabindex="0">
+                    <div class="portfolio-track" id="portfolioTrack">
+                        <article class="portfolio-card portfolio-slide">
+                            <div class="portfolio-image" onclick="openImageModal(this.querySelector('img').src, this.querySelector('img').alt)">
+                                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80" alt="Dashboard Ventas">
+                            </div>
+                            <div class="portfolio-content">
+                                <span class="portfolio-category" data-translate="portfolio1_category">Retail</span>
+                                <h3 data-translate="portfolio1_title">Dashboard de Ventas y Facturación</h3>
+                                <p data-translate="portfolio1_desc">Implementación de un sistema completo de análisis de ventas para una cadena retail.</p>
+                                <div class="portfolio-results">
+                                    <div class="result-item">
+                                        <strong>45%</strong>
+                                        <span>Reducción en tiempo de análisis</span>
+                                    </div>
+                                    <div class="result-item">
+                                        <strong>30%</strong>
+                                        <span>Mejora en toma de decisiones</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="portfolio-card portfolio-slide">
+                            <div class="portfolio-image" onclick="openImageModal(this.querySelector('img').src, this.querySelector('img').alt)">
+                                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80" alt="Dashboard Financiero">
+                            </div>
+                            <div class="portfolio-content">
+                                <span class="portfolio-category" data-translate="portfolio2_category">Finanzas</span>
+                                <h3 data-translate="portfolio2_title">Control Financiero Ejecutivo</h3>
+                                <p data-translate="portfolio2_desc">Dashboard ejecutivo para análisis financiero integral.</p>
+                                <div class="portfolio-results">
+                                    <div class="result-item">
+                                        <strong>60%</strong>
+                                        <span>Ahorro de tiempo</span>
+                                    </div>
+                                    <div class="result-item">
+                                        <strong>95%</strong>
+                                        <span>Precisión en proyecciones</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="portfolio-card portfolio-slide">
+                            <div class="portfolio-image" onclick="openImageModal(this.querySelector('img').src, this.querySelector('img').alt)">
+                                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80" alt="Marketing">
+                            </div>
+                            <div class="portfolio-content">
+                                <span class="portfolio-category" data-translate="portfolio3_category">Marketing</span>
+                                <h3 data-translate="portfolio3_title">Analytics de Marketing Digital</h3>
+                                <p data-translate="portfolio3_desc">Integración de datos de múltiples plataformas digitales.</p>
+                                <div class="portfolio-results">
+                                    <div class="result-item">
+                                        <strong>40%</strong>
+                                        <span>Optimización de inversión</span>
+                                    </div>
+                                    <div class="result-item">
+                                        <strong>25%</strong>
+                                        <span>Aumento en conversiones</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="portfolio-card portfolio-slide">
+                            <div class="portfolio-image" onclick="openImageModal(this.querySelector('img').src, this.querySelector('img').alt)">
+                                <img src="https://images.unsplash.com/photo-1556155092-490a1ba16284?w=800&q=80" alt="Dashboard Operaciones">
+                            </div>
+                            <div class="portfolio-content">
+                                <span class="portfolio-category" data-translate="portfolio4_category">Operaciones</span>
+                                <h3 data-translate="portfolio4_title">Control de Operaciones y Productividad</h3>
+                                <p data-translate="portfolio4_desc">Seguimiento de productividad, tiempos y cuellos de botella con visualizaciones accionables.</p>
+                                <div class="portfolio-results">
+                                    <div class="result-item">
+                                        <strong>35%</strong>
+                                        <span>Reducción de reprocesos</span>
+                                    </div>
+                                    <div class="result-item">
+                                        <strong>22%</strong>
+                                        <span>Mejora en eficiencia</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="portfolio-card portfolio-slide">
+                            <div class="portfolio-image" onclick="openImageModal(this.querySelector('img').src, this.querySelector('img').alt)">
+                                <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786?w=800&q=80" alt="Dashboard Logística">
+                            </div>
+                            <div class="portfolio-content">
+                                <span class="portfolio-category" data-translate="portfolio5_category">Logística</span>
+                                <h3 data-translate="portfolio5_title">Visibilidad de Inventario y Distribución</h3>
+                                <p data-translate="portfolio5_desc">Monitoreo de inventarios, entregas y niveles de servicio en tiempo real.</p>
+                                <div class="portfolio-results">
+                                    <div class="result-item">
+                                        <strong>18%</strong>
+                                        <span>Menos quiebres de stock</span>
+                                    </div>
+                                    <div class="result-item">
+                                        <strong>27%</strong>
+                                        <span>Mejor OTIF</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="portfolio-card portfolio-slide">
+                            <div class="portfolio-image" onclick="openImageModal(this.querySelector('img').src, this.querySelector('img').alt)">
+                                <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&q=80" alt="Dashboard Recursos Humanos">
+                            </div>
+                            <div class="portfolio-content">
+                                <span class="portfolio-category" data-translate="portfolio6_category">Talento</span>
+                                <h3 data-translate="portfolio6_title">People Analytics y Rotación</h3>
+                                <p data-translate="portfolio6_desc">Indicadores de rotación, desempeño y ausentismo para decisiones basadas en datos.</p>
+                                <div class="portfolio-results">
+                                    <div class="result-item">
+                                        <strong>15%</strong>
+                                        <span>Reducción de rotación</span>
+                                    </div>
+                                    <div class="result-item">
+                                        <strong>20%</strong>
+                                        <span>Menos ausentismo</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="portfolio-card portfolio-slide">
+                            <div class="portfolio-image" onclick="openImageModal(this.querySelector('img').src, this.querySelector('img').alt)">
+                                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80" alt="Dashboard E-commerce">
+                            </div>
+                            <div class="portfolio-content">
+                                <span class="portfolio-category" data-translate="portfolio7_category">E-commerce</span>
+                                <h3 data-translate="portfolio7_title">Rendimiento Comercial y Conversión</h3>
+                                <p data-translate="portfolio7_desc">Análisis de embudo, conversión y comportamiento del cliente para optimizar ventas.</p>
+                                <div class="portfolio-results">
+                                    <div class="result-item">
+                                        <strong>28%</strong>
+                                        <span>Mejora en conversión</span>
+                                    </div>
+                                    <div class="result-item">
+                                        <strong>12%</strong>
+                                        <span>Aumento en ticket</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+
+                <div class="portfolio-controls" aria-label="Controles del carrusel">
+                    <button class="portfolio-btn" type="button" data-carousel-prev aria-label="Anterior">
+                        <i class="fas fa-chevron-left" aria-hidden="true"></i>
+                    </button>
+                    <div class="portfolio-status" aria-live="polite">
+                        <span class="portfolio-current">1</span>
+                        <span class="portfolio-sep">/</span>
+                        <span class="portfolio-total">3</span>
+                    </div>
+                    <button class="portfolio-btn" type="button" data-carousel-next aria-label="Siguiente">
+                        <i class="fas fa-chevron-right" aria-hidden="true"></i>
+                    </button>
+                </div>
+
+                <div class="portfolio-dots" data-carousel-dots aria-label="Indicadores del carrusel"></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title" data-translate="testimonials_title">Experiencia de nuestros clientes</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"El dashboard que desarrolló D&J ha revolucionado la forma en que analizamos nuestras ventas. Ahora tomamos decisiones en minutos, no en días."</p>
+                    <div class="testimonial-author">
+                        <strong>Carlos Mendoza</strong>
+                        <span>Director Comercial</span>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"Profesionales, eficientes y con gran capacidad de entender nuestras necesidades. El soporte post-implementación ha sido excepcional."</p>
+                    <div class="testimonial-author">
+                        <strong>Ana Rodríguez</strong>
+                        <span>Gerente Financiera</span>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"Logramos optimizar un 40% nuestra inversión en marketing digital gracias a los insights que nos proporcionan los dashboards."</p>
+                    <div class="testimonial-author">
+                        <strong>Luis García</strong>
+                        <span>Director de Marketing</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="container cta-content">
+            <h2>¿Listo para transformar tus datos?</h2>
+            <p>Contáctanos y descubre cómo podemos ayudarte</p>
+            <a href="contacto.html" class="btn btn-primary btn-large">Solicita una consulta gratuita</a>
+        </div>
+    </section>
+
+    <!-- Image Modal -->
+    <div id="imageModal" class="image-modal" onclick="closeImageModal()">
+        <span class="modal-close">&times;</span>
+        <img class="modal-content" id="modalImage">
+        <div id="modalCaption"></div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <div class="footer-logo">
+                        <img class="footer-logo-img footer-logo-img-light" src="images/logo2.png" alt="D&J Insights Group">
+                        <img class="footer-logo-img footer-logo-img-dark" src="images/logo.png" alt="D&J Insights Group">
+                    </div>
+                    <div class="social-links">
+                        <a href="https://wa.me/573223459359" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://www.instagram.com/dyj_insights_group?igsh=MWY1M21vdWNnMTNoYQ%3D%3D&utm_source=qr" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.facebook.com/profile.php?id=61581581612762" target="_blank"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.linkedin.com/company/d-j-insights-group/?viewAsMember=true" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4>Navegación</h4>
+                    <ul>
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="servicios.html">Servicios</a></li>
+                        <li><a href="portafolio.html">Casos de éxito</a></li>
+                        <li><a href="acerca-de.html">Sobre nosotros</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Contacto</h4>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-phone"></i> +57 322 345 9359</li>
+                        <li><i class="fas fa-envelope"></i> contacto@dyjinsights.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Bogotá, Colombia</li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="politicas.html">Política de Privacidad</a></li>
+                        <li><a href="politicas.html">Política de Servicio</a></li>
+                        <li><a href="politicas.html">Términos y Condiciones</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 D&J Insights Group. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/translations.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>

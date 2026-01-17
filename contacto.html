@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contacta a D&J Insights Group - Expertos en Business Intelligence">
+    <title>Contacto | D&J Insights Group</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <div class="container nav-container">
+                <div class="logo">
+                    <img class="logo-img logo-img-light" src="images/logo2.png" alt="D&J Insights Group Logo">
+                    <img class="logo-img logo-img-dark" src="images/logo.png" alt="D&J Insights Group Logo">
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link" data-translate="nav_inicio">Inicio</a></li>
+                    <li><a href="servicios.html" class="nav-link" data-translate="nav_servicios">Servicios</a></li>
+                    <li><a href="portafolio.html" class="nav-link" data-translate="nav_casos">Proyectos</a></li>
+                    <li><a href="acerca-de.html" class="nav-link" data-translate="nav_sobre">Sobre nosotros</a></li>
+                    <li><a href="politicas.html" class="nav-link" data-translate="nav_politicas">Políticas</a></li>
+                    <li><a href="contacto.html" class="nav-link btn-contact active" data-translate="nav_contacto">Contacto</a></li>
+                </ul>
+                <input class="theme-toggle-input" id="themeToggle" type="checkbox" aria-label="Cambiar tema" />
+                <details class="theme-menu" id="themeMenu">
+                    <summary class="theme-menu-btn" id="themeMenuBtn" aria-label="Tema" title="Tema">
+                        <i class="fas fa-gear" aria-hidden="true"></i>
+                    </summary>
+                    <div class="theme-menu-panel">
+                        <button type="button" class="theme-menu-item" data-theme="light">
+                            <i class="fas fa-sun" aria-hidden="true"></i>
+                            <span data-translate="theme_light">Modo claro</span>
+                        </button>
+                        <button type="button" class="theme-menu-item" data-theme="dark">
+                            <i class="fas fa-moon" aria-hidden="true"></i>
+                            <span data-translate="theme_dark">Modo oscuro</span>
+                        </button>
+                    </div>
+                </details>
+                <div class="language-switcher">
+                    <button class="lang-dropdown-btn" id="langDropdownBtn">
+                        <span class="flag" id="currentFlag">🇨🇴</span>
+                        <span class="lang-code" id="currentLang">ES</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="lang-dropdown-menu" id="langDropdownMenu">
+                        <button class="lang-option" data-lang="es">
+                            <span class="flag">🇨🇴</span>
+                            <span>Español</span>
+                        </button>
+                        <button class="lang-option" data-lang="en">
+                            <span class="flag">🇺🇸</span>
+                            <span>English</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="page-header">
+        <div class="container">
+            <h1 data-translate="contact_title">Contáctanos</h1>
+            <p data-translate="contact_subtitle">Estamos aquí para ayudarte a transformar tus datos</p>
+        </div>
+    </section>
+
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-wrapper">
+                <div class="contact-info-box">
+                    <h2>Información de Contacto</h2>
+                    <p>¿Tienes un proyecto en mente? ¿Necesitas asesoría en Business Intelligence? Nos encantaría escucharte y ayudarte a alcanzar tus objetivos.</p>
+
+                    <div class="contact-details">
+                        <div class="contact-detail-item">
+                            <div class="detail-icon"><i class="fas fa-phone"></i></div>
+                            <div class="detail-text">
+                                <h4>Teléfono</h4>
+                                <a href="tel:+573223459359">+57 322 345 9359</a>
+                            </div>
+                        </div>
+
+                        <div class="contact-detail-item">
+                            <div class="detail-icon"><i class="fas fa-envelope"></i></div>
+                            <div class="detail-text">
+                                <h4>Email</h4>
+                                <a href="mailto:contacto@dyjinsights.com">contacto@dyjinsights.com</a>
+                            </div>
+                        </div>
+
+                        <div class="contact-detail-item">
+                            <div class="detail-icon"><i class="fas fa-map-marker-alt"></i></div>
+                            <div class="detail-text">
+                                <h4>Ubicación</h4>
+                                <p>Bogotá, Colombia</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-detail-item">
+                            <div class="detail-icon"><i class="fas fa-clock"></i></div>
+                            <div class="detail-text">
+                                <h4>Horario</h4>
+                                <p>Lunes - Viernes: 8:00 AM - 6:00 PM</p>
+                                <p>Sábados: 9:00 AM - 1:00 PM</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="social-links-contact">
+                        <h4>Síguenos en redes sociales</h4>
+                        <div class="social-buttons">
+                            <a href="https://wa.me/573223459359" target="_blank" class="social-btn whatsapp">
+                                <i class="fab fa-whatsapp"></i><span>WhatsApp</span>
+                            </a>
+                            <a href="https://www.instagram.com/dyj_insights_group?igsh=MWY1M21vdWNnMTNoYQ%3D%3D&utm_source=qr" target="_blank" class="social-btn instagram">
+                                <i class="fab fa-instagram"></i><span>Instagram</span>
+                            </a>
+                            <a href="https://www.facebook.com/profile.php?id=61581581612762" target="_blank" class="social-btn facebook">
+                                <i class="fab fa-facebook"></i><span>Facebook</span>
+                            </a>
+                            <a href="https://www.linkedin.com/company/d-j-insights-group/?viewAsMember=true" target="_blank" class="social-btn linkedin">
+                                <i class="fab fa-linkedin"></i><span>LinkedIn</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form-box">
+                    <h2>Envíanos un mensaje</h2>
+                    <form id="contactForm" class="contact-form" action="https://formspree.io/f/mvgenlyy" method="POST">
+                        <div class="form-group">
+                            <label for="name">Nombre completo *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Teléfono *</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="company">Empresa (opcional)</label>
+                            <input type="text" id="company" name="company">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="service">Servicio de interés</label>
+                            <select id="service" name="service">
+                                <option value="">Selecciona un plan</option>
+                                <option value="esencial">Proyecto Esencial</option>
+                                <option value="avanzado">Proyecto Avanzado</option>
+                                <option value="premium">Proyecto Premium</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Cuéntanos tu requerimiento *</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+
+                        <div id="formStatus" class="form-status"></div>
+
+                        <button type="submit" class="btn btn-primary btn-large">Enviar mensaje</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <div class="footer-logo">
+                        <img class="footer-logo-img footer-logo-img-light" src="images/logo2.png" alt="D&J Insights Group">
+                        <img class="footer-logo-img footer-logo-img-dark" src="images/logo.png" alt="D&J Insights Group">
+                    </div>
+                    <div class="social-links">
+                        <a href="https://wa.me/573223459359" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://www.instagram.com/dyj_insights_group?igsh=MWY1M21vdWNnMTNoYQ%3D%3D&utm_source=qr" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.facebook.com/profile.php?id=61581581612762" target="_blank"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.linkedin.com/company/d-j-insights-group/?viewAsMember=true" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4>Navegación</h4>
+                    <ul>
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="servicios.html">Servicios</a></li>
+                        <li><a href="portafolio.html">Casos de éxito</a></li>
+                        <li><a href="acerca-de.html">Sobre nosotros</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Contacto</h4>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-phone"></i> +57 322 345 9359</li>
+                        <li><i class="fas fa-envelope"></i> contacto@dyjinsights.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Bogotá, Colombia</li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="politicas.html">Política de Privacidad</a></li>
+                        <li><a href="politicas.html">Política de Servicio</a></li>
+                        <li><a href="politicas.html">Términos y Condiciones</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 D&J Insights Group. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/translations.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>

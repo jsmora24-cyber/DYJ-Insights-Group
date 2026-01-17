@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Servicios de Power BI y Business Intelligence - D&J Insights Group">
+    <title>Servicios | D&J Insights Group</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <div class="container nav-container">
+                <div class="logo">
+                    <img class="logo-img logo-img-light" src="images/logo2.png" alt="D&J Insights Group Logo">
+                    <img class="logo-img logo-img-dark" src="images/logo.png" alt="D&J Insights Group Logo">
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link" data-translate="nav_inicio">Inicio</a></li>
+                    <li><a href="servicios.html" class="nav-link active" data-translate="nav_servicios">Servicios</a></li>
+                    <li><a href="portafolio.html" class="nav-link" data-translate="nav_casos">Proyectos</a></li>
+                    <li><a href="acerca-de.html" class="nav-link" data-translate="nav_sobre">Sobre nosotros</a></li>
+                    <li><a href="politicas.html" class="nav-link" data-translate="nav_politicas">Políticas</a></li>
+                    <li><a href="contacto.html" class="nav-link btn-contact" data-translate="nav_contacto">Contacto</a></li>
+                </ul>
+                <input class="theme-toggle-input" id="themeToggle" type="checkbox" aria-label="Cambiar tema" />
+                <details class="theme-menu" id="themeMenu">
+                    <summary class="theme-menu-btn" id="themeMenuBtn" aria-label="Tema" title="Tema">
+                        <i class="fas fa-gear" aria-hidden="true"></i>
+                    </summary>
+                    <div class="theme-menu-panel">
+                        <button type="button" class="theme-menu-item" data-theme="light">
+                            <i class="fas fa-sun" aria-hidden="true"></i>
+                            <span data-translate="theme_light">Modo claro</span>
+                        </button>
+                        <button type="button" class="theme-menu-item" data-theme="dark">
+                            <i class="fas fa-moon" aria-hidden="true"></i>
+                            <span data-translate="theme_dark">Modo oscuro</span>
+                        </button>
+                    </div>
+                </details>
+                <div class="language-switcher">
+                    <button class="lang-dropdown-btn" id="langDropdownBtn">
+                        <span class="flag" id="currentFlag">🇨🇴</span>
+                        <span class="lang-code" id="currentLang">ES</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="lang-dropdown-menu" id="langDropdownMenu">
+                        <button class="lang-option" data-lang="es">
+                            <span class="flag">🇨🇴</span>
+                            <span>Español</span>
+                        </button>
+                        <button class="lang-option" data-lang="en">
+                            <span class="flag">🇺🇸</span>
+                            <span>English</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="page-header">
+        <div class="container">
+            <h1 data-translate="services_page_title">Nuestros Servicios</h1>
+            <p data-translate="services_page_subtitle">Soluciones de análisis de datos diseñadas para impulsar el crecimiento de su empresa</p>
+        </div>
+    </section>
+
+    <section class="services-detail">
+        <div class="container">
+            <div class="service-detail-card">
+                <div class="service-detail-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <div class="service-detail-content">
+                    <h2 data-translate="services_detail1_title">Dashboards Interactivos</h2>
+                    <p data-translate="services_detail1_desc">Tableros de control personalizados y fáciles de usar que transforman datos complejos en visualizaciones claras e intuitivas. Permiten una comprensión instantánea del estado de su negocio y facilitan decisiones informadas en tiempo real.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Visualizaciones interactivas personalizadas</li>
+                        <li><i class="fas fa-check"></i> Actualización en tiempo real</li>
+                        <li><i class="fas fa-check"></i> Navegación intuitiva y dinámica</li>
+                        <li><i class="fas fa-check"></i> Diseño adaptado a su marca</li>
+                        <li><i class="fas fa-check"></i> Acceso multiplataforma</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service-detail-card reverse">
+                <div class="service-detail-icon">
+                    <i class="fas fa-palette"></i>
+                </div>
+                <div class="service-detail-content">
+                    <h2 data-translate="services_detail2_title">Diseño de Dashboards Avanzados</h2>
+                    <p data-translate="services_detail2_desc">Creamos dashboards visualmente avanzados: claros, modernos y fáciles de leer. Combinamos UI/UX, storytelling de datos y una estética tecnológica para que cada tablero comunique en segundos y se adapte a sus necesidades y marca.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Diseño moderno y llamativo (UI/UX)</li>
+                        <li><i class="fas fa-check"></i> Jerarquía visual para lectura rápida</li>
+                        <li><i class="fas fa-check"></i> Estilo alineado a su marca (colores y tipografía)</li>
+                        <li><i class="fas fa-check"></i> Navegación intuitiva e interacciones claras</li>
+                        <li><i class="fas fa-check"></i> Diseño adaptable según objetivos y necesidades</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service-detail-card">
+                <div class="service-detail-icon">
+                    <i class="fas fa-chart-area"></i>
+                </div>
+                <div class="service-detail-content">
+                    <h2 data-translate="services_detail3_title">Análisis de Tendencias</h2>
+                    <p data-translate="services_detail3_desc">Transformamos los datos de su empresa en información clara, visual y fácil de interpretar, para identificar tendencias, comportamientos y oportunidades que respaldan la toma de decisiones en todos los niveles de la organización. Con diseños avanzados y enfoque analítico, convertimos los datos en una herramienta práctica para el crecimiento y la mejora continua.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Identificación de patrones y correlaciones</li>
+                        <li><i class="fas fa-check"></i> Proyecciones y forecasting</li>
+                        <li><i class="fas fa-check"></i> Análisis predictivo avanzado</li>
+                        <li><i class="fas fa-check"></i> Detección de anomalías</li>
+                        <li><i class="fas fa-check"></i> Recomendaciones estratégicas</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service-detail-card reverse">
+                <div class="service-detail-icon">
+                    <i class="fas fa-tachometer-alt"></i>
+                </div>
+                <div class="service-detail-content">
+                    <h2 data-translate="services_detail4_title">KPIs Visualizados</h2>
+                    <p data-translate="services_detail4_desc">Mida el éxito de su negocio con indicadores clave de rendimiento claros, comprensibles y accionables. Transformamos métricas complejas en visualizaciones que comunican el estado de su empresa de forma instantánea y facilitan decisiones estratégicas.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Definición de KPIs relevantes</li>
+                        <li><i class="fas fa-check"></i> Visualización clara y directa</li>
+                        <li><i class="fas fa-check"></i> Seguimiento en tiempo real</li>
+                        <li><i class="fas fa-check"></i> Alertas automáticas de desempeño</li>
+                        <li><i class="fas fa-check"></i> Comparativas históricas y objetivos</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service-detail-card">
+                <div class="service-detail-icon">
+                    <i class="fas fa-mobile-alt"></i>
+                </div>
+                <div class="service-detail-content">
+                    <h2>Reportes Móviles y en la Nube</h2>
+                    <p>Accede a tus datos desde cualquier lugar y en cualquier momento. Implementamos soluciones en Power BI Service que te permiten consultar tus dashboards desde tu computadora, tablet o smartphone, con actualizaciones en tiempo real y seguridad empresarial.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Acceso desde cualquier dispositivo</li>
+                        <li><i class="fas fa-check"></i> Sincronización en tiempo real</li>
+                        <li><i class="fas fa-check"></i> Configuración de permisos y seguridad</li>
+                        <li><i class="fas fa-check"></i> Optimización para móviles</li>
+                        <li><i class="fas fa-check"></i> Alertas y notificaciones automáticas</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="pricing-plans">
+        <div class="container">
+            <div class="section-header">
+                <h2>Nuestros Planes de Proyecto</h2>
+                <p>Selecciona el plan que mejor se adapte a las necesidades de tu empresa</p>
+            </div>
+
+            <div class="plans-grid">
+                <!-- Proyecto Esencial -->
+                <div class="plan-card">
+                    <div class="plan-badge">Ideal para empezar</div>
+                    <h3 class="plan-title">Proyecto Esencial</h3>
+                    <div class="plan-features">
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Informes en Excel o Power BI</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Dashboard sencillo y funcional</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>KPIs básicos definidos con el cliente</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Visualizaciones claras (gráficos estándar)</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Resumen ejecutivo de resultados</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Capacitación básica de uso</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Soporte post-entrega 1 semana</span>
+                        </div>
+                    </div>
+                    <a href="contacto.html?plan=esencial" class="btn btn-primary">Me interesa</a>
+                </div>
+
+                <!-- Proyecto Avanzado -->
+                <div class="plan-card featured">
+                    <div class="plan-badge popular">Más popular</div>
+                    <h3 class="plan-title">Proyecto Avanzado</h3>
+                    <div class="plan-features">
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Informes en Excel y Power BI</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Dashboards interactivos y más detallados</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>KPIs personalizados y comparativos</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Filtros, segmentaciones y vistas dinámicas</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Análisis de tendencias y variaciones</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Informe de resultados ampliado</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Capacitación para equipos</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Soporte extendido 1 mes</span>
+                        </div>
+                    </div>
+                    <a href="contacto.html?plan=avanzado" class="btn btn-primary">Me interesa</a>
+                </div>
+
+                <!-- Proyecto Premium -->
+                <div class="plan-card">
+                    <div class="plan-badge">Máxima personalización</div>
+                    <h3 class="plan-title">Proyecto Premium</h3>
+                    <div class="plan-features">
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Dashboards 100% a la medida del negocio</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Modelado analítico orientado a decisiones</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Indicadores estratégicos y ejecutivos</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Informe ejecutivo para alta gerencia</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Sesiones periódicas de revisión</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Optimización continua de dashboards</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Acompañamiento personalizado y prioritario</span>
+                        </div>
+                    </div>
+                    <a href="contacto.html?plan=premium" class="btn btn-primary">Me interesa</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="container cta-content">
+            <h2>¿Listo para transformar tus datos?</h2>
+            <p>Contáctanos y descubre cómo podemos ayudarte</p>
+            <a href="contacto.html" class="btn btn-primary btn-large">Solicita una consulta gratuita</a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <div class="footer-logo">
+                        <img class="footer-logo-img footer-logo-img-light" src="images/logo2.png" alt="D&J Insights Group">
+                        <img class="footer-logo-img footer-logo-img-dark" src="images/logo.png" alt="D&J Insights Group">
+                    </div>
+                    <div class="social-links">
+                        <a href="https://wa.me/573223459359" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://www.instagram.com/dyj_insights_group?igsh=MWY1M21vdWNnMTNoYQ%3D%3D&utm_source=qr" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.facebook.com/profile.php?id=61581581612762" target="_blank"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.linkedin.com/company/d-j-insights-group/?viewAsMember=true" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4>Navegación</h4>
+                    <ul>
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="servicios.html">Servicios</a></li>
+                        <li><a href="portafolio.html">Casos de éxito</a></li>
+                        <li><a href="acerca-de.html">Sobre nosotros</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Contacto</h4>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-phone"></i> +57 322 345 9359</li>
+                        <li><i class="fas fa-envelope"></i> contacto@dyjinsights.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Bogotá, Colombia</li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="politicas.html">Política de Privacidad</a></li>
+                        <li><a href="politicas.html">Política de Servicio</a></li>
+                        <li><a href="politicas.html">Términos y Condiciones</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 D&J Insights Group. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/translations.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>

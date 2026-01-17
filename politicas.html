@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Servicios de Power BI y Business Intelligence - D&J Insights Group">
+    <title>Políticas | D&J Insights Group</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <div class="container nav-container">
+                <div class="logo">
+                    <img class="logo-img logo-img-light" src="images/logo2.png" alt="D&J Insights Group Logo">
+                    <img class="logo-img logo-img-dark" src="images/logo.png" alt="D&J Insights Group Logo">
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link" data-translate="nav_inicio">Inicio</a></li>
+                    <li><a href="servicios.html" class="nav-link" data-translate="nav_servicios">Servicios</a></li>
+                    <li><a href="portafolio.html" class="nav-link" data-translate="nav_casos">Proyectos</a></li>
+                    <li><a href="acerca-de.html" class="nav-link" data-translate="nav_sobre">Sobre nosotros</a></li>
+                    <li><a href="politicas.html" class="nav-link active" data-translate="nav_politicas">Políticas</a></li>
+                    <li><a href="contacto.html" class="nav-link btn-contact" data-translate="nav_contacto">Contacto</a></li>
+                </ul>
+                <input class="theme-toggle-input" id="themeToggle" type="checkbox" aria-label="Cambiar tema" />
+                <details class="theme-menu" id="themeMenu">
+                    <summary class="theme-menu-btn" id="themeMenuBtn" aria-label="Tema" title="Tema">
+                        <i class="fas fa-gear" aria-hidden="true"></i>
+                    </summary>
+                    <div class="theme-menu-panel">
+                        <button type="button" class="theme-menu-item" data-theme="light">
+                            <i class="fas fa-sun" aria-hidden="true"></i>
+                            <span data-translate="theme_light">Modo claro</span>
+                        </button>
+                        <button type="button" class="theme-menu-item" data-theme="dark">
+                            <i class="fas fa-moon" aria-hidden="true"></i>
+                            <span data-translate="theme_dark">Modo oscuro</span>
+                        </button>
+                    </div>
+                </details>
+                <div class="language-switcher">
+                    <button class="lang-dropdown-btn" id="langDropdownBtn">
+                        <span class="flag" id="currentFlag">🇨🇴</span>
+                        <span class="lang-code" id="currentLang">ES</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="lang-dropdown-menu" id="langDropdownMenu">
+                        <button class="lang-option" data-lang="es">
+                            <span class="flag">🇨🇴</span>
+                            <span>Español</span>
+                        </button>
+                        <button class="lang-option" data-lang="en">
+                            <span class="flag">🇺🇸</span>
+                            <span>English</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="page-header">
+        <div class="container">
+            <h1 data-translate="policies_title">Políticas y Documentos Legales</h1>
+            <p data-translate="policies_subtitle">Transparencia y compromiso con nuestros clientes</p>
+        </div>
+    </section>
+
+    <section class="policy-content">
+        <div class="container">
+            <div class="policy-intro">
+                <h2 data-translate="policies_intro_title">Documentación Legal</h2>
+                <p data-translate="policies_intro_desc">En D&J Insights Group nos comprometemos con la transparencia y el cumplimiento legal. A continuación, puede consultar y descargar nuestros documentos oficiales:</p>
+            </div>
+
+            <div class="documents-grid">
+                <div class="document-card">
+                    <div class="document-icon">
+                        <i class="fas fa-file-contract"></i>
+                    </div>
+                    <div class="document-content">
+                        <h3 data-translate="policy1_title">Políticas de Servicio</h3>
+                        <p data-translate="policy1_desc">Conoce nuestros términos de servicio, alcance de proyectos, tiempos de entrega y compromisos con nuestros clientes.</p>
+                        <a href="documentos/politicas-de-servicio.pdf" download class="btn btn-primary">
+                            <i class="fas fa-download"></i> <span data-translate="download_pdf">Descargar PDF</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="document-card">
+                    <div class="document-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="document-content">
+                        <h3 data-translate="policy2_title">Políticas de Privacidad</h3>
+                        <p data-translate="policy2_desc">Información sobre cómo recopilamos, usamos y protegemos sus datos personales de acuerdo con las normativas vigentes.</p>
+                        <a href="documentos/politicas-de-privacidad.pdf" download class="btn btn-primary">
+                            <i class="fas fa-download"></i> <span data-translate="download_pdf">Descargar PDF</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="document-card">
+                    <div class="document-icon">
+                        <i class="fas fa-gavel"></i>
+                    </div>
+                    <div class="document-content">
+                        <h3 data-translate="policy3_title">Términos y Condiciones</h3>
+                        <p data-translate="policy3_desc">Términos legales que rigen el uso de nuestros servicios, obligaciones de ambas partes y resolución de conflictos.</p>
+                        <a href="documentos/terminos-y-condiciones.pdf" download class="btn btn-primary">
+                            <i class="fas fa-download"></i> <span data-translate="download_pdf">Descargar PDF</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="policy-section">
+                <h2 data-translate="policies_summary">Resumen de Nuestras Políticas</h2>
+                
+                <h3><i class="fas fa-handshake"></i> Compromiso con el Cliente</h3>
+                <p>En D&J Insights Group nos comprometemos a:</p>
+                <ul>
+                    <li>Entregar proyectos de calidad en los plazos acordados</li>
+                    <li>Mantener la confidencialidad de toda la información</li>
+                    <li>Proporcionar soporte post-implementación</li>
+                    <li>Comunicación transparente durante todo el proyecto</li>
+                </ul>
+
+                <h3><i class="fas fa-lock"></i> Protección de Datos</h3>
+                <p>Protegemos su información mediante:</p>
+                <ul>
+                    <li>Cifrado de datos sensibles</li>
+                    <li>Acceso restringido a información confidencial</li>
+                    <li>Cumplimiento de normativas de protección de datos</li>
+                    <li>Auditorías periódicas de seguridad</li>
+                </ul>
+
+                <h3><i class="fas fa-check-circle"></i> Derechos del Cliente</h3>
+                <p>Como cliente de D&J Insights Group, usted tiene derecho a:</p>
+                <ul>
+                    <li>Acceder a sus datos personales en cualquier momento</li>
+                    <li>Solicitar correcciones o eliminación de datos</li>
+                    <li>Recibir entregas en los plazos establecidos</li>
+                    <li>Soporte técnico y consultoría continua</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <div class="footer-logo">
+                        <img class="footer-logo-img footer-logo-img-light" src="images/logo2.png" alt="D&J Insights Group">
+                        <img class="footer-logo-img footer-logo-img-dark" src="images/logo.png" alt="D&J Insights Group">
+                    </div>
+                    <div class="social-links">
+                        <a href="https://wa.me/573223459359" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://www.instagram.com/dyj_insights_group?igsh=MWY1M21vdWNnMTNoYQ%3D%3D&utm_source=qr" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.facebook.com/profile.php?id=61581581612762" target="_blank"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.linkedin.com/company/d-j-insights-group/?viewAsMember=true" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4>Navegación</h4>
+                    <ul>
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="servicios.html">Servicios</a></li>
+                        <li><a href="portafolio.html">Casos de éxito</a></li>
+                        <li><a href="acerca-de.html">Sobre nosotros</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Contacto</h4>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-phone"></i> +57 322 345 9359</li>
+                        <li><i class="fas fa-envelope"></i> contacto@dyjinsights.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Bogotá, Colombia</li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="politicas.html">Política de Privacidad</a></li>
+                        <li><a href="politicas.html">Política de Servicio</a></li>
+                        <li><a href="politicas.html">Términos y Condiciones</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 D&J Insights Group. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/translations.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>

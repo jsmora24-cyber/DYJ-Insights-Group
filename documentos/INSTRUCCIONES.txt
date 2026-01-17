@@ -1,0 +1,25 @@
+INSTRUCCIONES PARA SUBIR LOS ARCHIVOS PDF
+==========================================
+
+Por favor, sube los siguientes 3 archivos PDF a esta carpeta "documentos":
+
+1. politicas-de-servicio.pdf
+   - Contiene: Políticas de Servicio de D&J Insights Group
+   - Descripción: Términos de servicio, alcance de proyectos, tiempos de entrega y compromisos
+
+2. politicas-de-privacidad.pdf
+   - Contiene: Políticas de Privacidad de D&J Insights Group
+   - Descripción: Información sobre cómo se recopilan, usan y protegen los datos personales
+
+3. terminos-y-condiciones.pdf
+   - Contiene: Términos y Condiciones de D&J Insights Group
+   - Descripción: Términos legales, obligaciones de ambas partes y resolución de conflictos
+
+IMPORTANTE:
+- Los nombres de los archivos deben ser EXACTAMENTE como se especifican arriba
+- Deben estar en formato PDF
+- Una vez subidos, los usuarios podrán descargarlos desde la página web
+- Ubicación web: https://tu-sitio.com/politicas.html
+
+Si necesitas cambiar los nombres de los archivos, también deberás actualizar las rutas en el archivo:
+c:\Pagina web DYJ\politicas.html

@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="900" viewBox="0 0 1400 900" role="img" aria-label="Dashboard profesional de Power BI">
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f8f9fa;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ffffff;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="cardGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#fefefe;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="blueBar" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#60a5fa;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="cyanBar" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#22d3ee;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#06b6d4;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="purpleBar" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#a78bfa;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="greenGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#34d399;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#10b981;stop-opacity:1" />
+    </linearGradient>
+    <filter id="cardShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000" flood-opacity="0.08"/>
+    </filter>
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#000" flood-opacity="0.06"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1400" height="900" fill="url(#bgGradient)"/>
+
+  <!-- Header Bar (simulating Power BI top nav) -->
+  <rect x="0" y="0" width="1400" height="65" fill="#1f2937"/>
+  <text x="30" y="42" font-family="'Segoe UI', Arial, sans-serif" font-size="22" font-weight="600" fill="#ffffff">Dashboard Ejecutivo</text>
+  
+  <!-- Menu icons (simulated) -->
+  <g opacity="0.85">
+    <circle cx="1280" cy="32" r="16" fill="#374151"/>
+    <circle cx="1330" cy="32" r="16" fill="#374151"/>
+    <circle cx="1370" cy="32" r="16" fill="#374151"/>
+  </g>
+
+  <!-- Left Sidebar (filters panel) -->
+  <rect x="0" y="65" width="240" height="835" fill="#f9fafb" opacity="0.6"/>
+  <rect x="20" y="90" width="200" height="32" rx="6" fill="#ffffff" filter="url(#softShadow)"/>
+  <rect x="20" y="140" width="200" height="32" rx="6" fill="#ffffff" filter="url(#softShadow)"/>
+  <rect x="20" y="190" width="200" height="32" rx="6" fill="#ffffff" filter="url(#softShadow)"/>
+  
+  <!-- Main Content Area -->
+  <g transform="translate(260, 90)">
+    
+    <!-- KPI Cards Row -->
+    <!-- Card 1: Revenue -->
+    <g filter="url(#cardShadow)">
+      <rect x="0" y="0" width="260" height="140" rx="12" fill="url(#cardGradient)"/>
+      <text x="20" y="30" font-family="'Segoe UI', Arial, sans-serif" font-size="14" font-weight="500" fill="#6b7280">Ingresos Totales</text>
+      <text x="20" y="75" font-family="'Segoe UI', Arial, sans-serif" font-size="36" font-weight="700" fill="#111827">$2.4M</text>
+      <text x="20" y="105" font-family="'Segoe UI', Arial, sans-serif" font-size="13" font-weight="600" fill="#10b981">↑ 12.5%</text>
+      <circle cx="220" cy="35" r="22" fill="#dbeafe" opacity="0.5"/>
+      <path d="M 220 25 L 220 45 M 210 35 L 230 35" stroke="#3b82f6" stroke-width="2.5" fill="none"/>
+    </g>
+
+    <!-- Card 2: Clients -->
+    <g filter="url(#cardShadow)">
+      <rect x="280" y="0" width="260" height="140" rx="12" fill="url(#cardGradient)"/>
+      <text x="300" y="30" font-family="'Segoe UI', Arial, sans-serif" font-size="14" font-weight="500" fill="#6b7280">Clientes Activos</text>
+      <text x="300" y="75" font-family="'Segoe UI', Arial, sans-serif" font-size="36" font-weight="700" fill="#111827">1,847</text>
+      <text x="300" y="105" font-family="'Segoe UI', Arial, sans-serif" font-size="13" font-weight="600" fill="#10b981">↑ 8.2%</text>
+      <circle cx="500" cy="35" r="22" fill="#e0e7ff" opacity="0.5"/>
+      <circle cx="500" cy="30" r="8" fill="#6366f1"/>
+      <path d="M 500 38 Q 485 50, 485 65 L 515 65 Q 515 50, 500 38" fill="#6366f1"/>
+    </g>
+
+    <!-- Card 3: Conversion -->
+    <g filter="url(#cardShadow)">
+      <rect x="560" y="0" width="260" height="140" rx="12" fill="url(#cardGradient)"/>
+      <text x="580" y="30" font-family="'Segoe UI', Arial, sans-serif" font-size="14" font-weight="500" fill="#6b7280">Tasa Conversión</text>
+      <text x="580" y="75" font-family="'Segoe UI', Arial, sans-serif" font-size="36" font-weight="700" fill="#111827">24.8%</text>
+      <text x="580" y="105" font-family="'Segoe UI', Arial, sans-serif" font-size="13" font-weight="600" fill="#10b981">↑ 3.1%</text>
+      <circle cx="780" cy="35" r="22" fill="#d1fae5" opacity="0.5"/>
+      <path d="M 770 35 L 775 40 L 790 25" stroke="#10b981" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+
+    <!-- Card 4: Orders -->
+    <g filter="url(#cardShadow)">
+      <rect x="840" y="0" width="260" height="140" rx="12" fill="url(#cardGradient)"/>
+      <text x="860" y="30" font-family="'Segoe UI', Arial, sans-serif" font-size="14" font-weight="500" fill="#6b7280">Pedidos Mes</text>
+      <text x="860" y="75" font-family="'Segoe UI', Arial, sans-serif" font-size="36" font-weight="700" fill="#111827">3,652</text>
+      <text x="860" y="105" font-family="'Segoe UI', Arial, sans-serif" font-size="13" font-weight="600" fill="#10b981">↑ 15.7%</text>
+      <circle cx="1060" cy="35" r="22" fill="#fef3c7" opacity="0.5"/>
+      <rect x="1050" y="28" width="5" height="14" rx="2" fill="#f59e0b"/>
+      <rect x="1058" y="22" width="5" height="20" rx="2" fill="#f59e0b"/>
+      <rect x="1066" y="30" width="5" height="12" rx="2" fill="#f59e0b"/>
+    </g>
+
+    <!-- Line Chart (Revenue Trend) -->
+    <g filter="url(#cardShadow)">
+      <rect x="0" y="165" width="540" height="320" rx="12" fill="url(#cardGradient)"/>
+      <text x="20" y="195" font-family="'Segoe UI', Arial, sans-serif" font-size="16" font-weight="600" fill="#111827">Tendencia de Ingresos</text>
+      <text x="20" y="215" font-family="'Segoe UI', Arial, sans-serif" font-size="12" fill="#9ca3af">Últimos 12 meses</text>
+      
+      <!-- Grid lines -->
+      <line x1="45" y1="245" x2="515" y2="245" stroke="#e5e7eb" stroke-width="1"/>
+      <line x1="45" y1="300" x2="515" y2="300" stroke="#e5e7eb" stroke-width="1"/>
+      <line x1="45" y1="355" x2="515" y2="355" stroke="#e5e7eb" stroke-width="1"/>
+      <line x1="45" y1="410" x2="515" y2="410" stroke="#e5e7eb" stroke-width="1"/>
+      <line x1="45" y1="465" x2="515" y2="465" stroke="#e5e7eb" stroke-width="1"/>
+      
+      <!-- Line chart path -->
+      <path d="M 45 410 L 85 395 L 125 380 L 165 400 L 205 370 L 245 355 L 285 340 L 325 360 L 365 320 L 405 305 L 445 280 L 485 265" 
+            stroke="url(#blueBar)" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      
+      <!-- Area fill under line -->
+      <path d="M 45 410 L 85 395 L 125 380 L 165 400 L 205 370 L 245 355 L 285 340 L 325 360 L 365 320 L 405 305 L 445 280 L 485 265 L 485 465 L 45 465 Z" 
+            fill="url(#blueBar)" opacity="0.1"/>
+      
+      <!-- Data points -->
+      <circle cx="45" cy="410" r="4" fill="#3b82f6"/>
+      <circle cx="125" cy="380" r="4" fill="#3b82f6"/>
+      <circle cx="205" cy="370" r="4" fill="#3b82f6"/>
+      <circle cx="285" cy="340" r="4" fill="#3b82f6"/>
+      <circle cx="365" cy="320" r="4" fill="#3b82f6"/>
+      <circle cx="445" cy="280" r="4" fill="#3b82f6"/>
+      <circle cx="485" cy="265" r="5" fill="#3b82f6"/>
+      
+      <!-- Month labels -->
+      <text x="45" y="480" font-family="'Segoe UI', Arial, sans-serif" font-size="10" fill="#9ca3af" text-anchor="middle">Ene</text>
+      <text x="125" y="480" font-family="'Segoe UI', Arial, sans-serif" font-size="10" fill="#9ca3af" text-anchor="middle">Mar</text>
+      <text x="205" y="480" font-family="'Segoe UI', Arial, sans-serif" font-size="10" fill="#9ca3af" text-anchor="middle">May</text>
+      <text x="285" y="480" font-family="'Segoe UI', Arial, sans-serif" font-size="10" fill="#9ca3af" text-anchor="middle">Jul</text>
+      <text x="365" y="480" font-family="'Segoe UI', Arial, sans-serif" font-size="10" fill="#9ca3af" text-anchor="middle">Sep</text>
+      <text x="445" y="480" font-family="'Segoe UI', Arial, sans-serif" font-size="10" fill="#9ca3af" text-anchor="middle">Nov</text>
+    </g>
+
+    <!-- Bar Chart (Sales by Region) -->
+    <g filter="url(#cardShadow)">
+      <rect x="560" y="165" width="540" height="320" rx="12" fill="url(#cardGradient)"/>
+      <text x="580" y="195" font-family="'Segoe UI', Arial, sans-serif" font-size="16" font-weight="600" fill="#111827">Ventas por Región</text>
+      <text x="580" y="215" font-family="'Segoe UI', Arial, sans-serif" font-size="12" fill="#9ca3af">Q1 2026</text>
+      
+      <!-- Bars -->
+      <rect x="600" y="330" width="90" height="120" rx="6" fill="url(#blueBar)"/>
+      <rect x="720" y="290" width="90" height="160" rx="6" fill="url(#cyanBar)"/>
+      <rect x="840" y="310" width="90" height="140" rx="6" fill="url(#purpleBar)"/>
+      <rect x="960" y="260" width="90" height="190" rx="6" fill="url(#greenGrad)"/>
+      
+      <!-- Values on bars -->
+      <text x="645" y="320" font-family="'Segoe UI', Arial, sans-serif" font-size="13" font-weight="600" fill="#ffffff" text-anchor="middle">$580K</text>
+      <text x="765" y="280" font-family="'Segoe UI', Arial, sans-serif" font-size="13" font-weight="600" fill="#ffffff" text-anchor="middle">$720K</text>
+      <text x="885" y="300" font-family="'Segoe UI', Arial, sans-serif" font-size="13" font-weight="600" fill="#ffffff" text-anchor="middle">$640K</text>
+      <text x="1005" y="250" font-family="'Segoe UI', Arial, sans-serif" font-size="13" font-weight="600" fill="#ffffff" text-anchor="middle">$850K</text>
+      
+      <!-- Region labels -->
+      <text x="645" y="470" font-family="'Segoe UI', Arial, sans-serif" font-size="12" fill="#6b7280" text-anchor="middle">Norte</text>
+      <text x="765" y="470" font-family="'Segoe UI', Arial, sans-serif" font-size="12" fill="#6b7280" text-anchor="middle">Sur</text>
+      <text x="885" y="470" font-family="'Segoe UI', Arial, sans-serif" font-size="12" fill="#6b7280" text-anchor="middle">Este</text>
+      <text x="1005" y="470" font-family="'Segoe UI', Arial, sans-serif" font-size="12" fill="#6b7280" text-anchor="middle">Oeste</text>
+    </g>
+
+    <!-- Donut Chart (Product Categories) -->
+    <g filter="url(#cardShadow)">
+      <rect x="0" y="510" width="360" height="285" rx="12" fill="url(#cardGradient)"/>
+      <text x="20" y="540" font-family="'Segoe UI', Arial, sans-serif" font-size="16" font-weight="600" fill="#111827">Productos Top</text>
+      <text x="20" y="560" font-family="'Segoe UI', Arial, sans-serif" font-size="12" fill="#9ca3af">Por categoría</text>
+      
+      <!-- Donut chart (simplified) -->
+      <circle cx="100" cy="680" r="65" fill="none" stroke="#3b82f6" stroke-width="28"/>
+      <circle cx="100" cy="680" r="65" fill="none" stroke="#06b6d4" stroke-width="28" 
+              stroke-dasharray="102 306" transform="rotate(-90 100 680)"/>
+      <circle cx="100" cy="680" r="65" fill="none" stroke="#8b5cf6" stroke-width="28" 
+              stroke-dasharray="61 347" transform="rotate(30 100 680)"/>
+      <circle cx="100" cy="680" r="65" fill="none" stroke="#10b981" stroke-width="28" 
+              stroke-dasharray="51 357" transform="rotate(83 100 680)"/>
+      <circle cx="100" cy="680" r="42" fill="url(#cardGradient)"/>
+      
+      <!-- Legend -->
+      <rect x="200" y="605" width="14" height="14" rx="3" fill="#3b82f6"/>
+      <text x="222" y="616" font-family="'Segoe UI', Arial, sans-serif" font-size="12" fill="#374151">Electrónica (35%)</text>
+      
+      <rect x="200" y="635" width="14" height="14" rx="3" fill="#06b6d4"/>
+      <text x="222" y="646" font-family="'Segoe UI', Arial, sans-serif" font-size="12" fill="#374151">Ropa (25%)</text>
+      
+      <rect x="200" y="665" width="14" height="14" rx="3" fill="#8b5cf6"/>
+      <text x="222" y="676" font-family="'Segoe UI', Arial, sans-serif" font-size="12" fill="#374151">Hogar (20%)</text>
+      
+      <rect x="200" y="695" width="14" height="14" rx="3" fill="#10b981"/>
+      <text x="222" y="706" font-family="'Segoe UI', Arial, sans-serif" font-size="12" fill="#374151">Deportes (20%)</text>
+    </g>
+
+    <!-- Table (Top Sellers) -->
+    <g filter="url(#cardShadow)">
+      <rect x="380" y="510" width="720" height="285" rx="12" fill="url(#cardGradient)"/>
+      <text x="400" y="540" font-family="'Segoe UI', Arial, sans-serif" font-size="16" font-weight="600" fill="#111827">Productos Más Vendidos</text>
+      <text x="400" y="560" font-family="'Segoe UI', Arial, sans-serif" font-size="12" fill="#9ca3af">Top 5 del mes</text>
+      
+      <!-- Table header -->
+      <rect x="400" y="580" width="680" height="36" rx="6" fill="#f9fafb"/>
+      <text x="420" y="602" font-family="'Segoe UI', Arial, sans-serif" font-size="11" font-weight="600" fill="#6b7280">PRODUCTO</text>
+      <text x="720" y="602" font-family="'Segoe UI', Arial, sans-serif" font-size="11" font-weight="600" fill="#6b7280">VENTAS</text>
+      <text x="900" y="602" font-family="'Segoe UI', Arial, sans-serif" font-size="11" font-weight="600" fill="#6b7280">INGRESOS</text>
+      <text x="1030" y="602" font-family="'Segoe UI', Arial, sans-serif" font-size="11" font-weight="600" fill="#6b7280">TENDENCIA</text>
+      
+      <!-- Row 1 -->
+      <text x="420" y="640" font-family="'Segoe UI', Arial, sans-serif" font-size="12" fill="#111827">Laptop Pro X1</text>
+      <text x="720" y="640" font-family="'Segoe UI', Arial, sans-serif" font-size="12" fill="#374151">342</text>
+      <text x="900" y="640" font-family="'Segoe UI', Arial, sans-serif" font-size="12" fill="#374151">$485,600</text>
+      <rect x="1030" y="628" width="50" height="18" rx="4" fill="#dcfce7"/>
+      <text x="1055" y="640" font-family="'Segoe UI', Arial, sans-serif" font-size="11" font-weight="600" fill="#10b981" text-anchor="middle">↑ 12%</text>
+      
+      <!-- Row 2 -->
+      <text x="420" y="670" font-family="'Segoe UI', Arial, sans-serif" font-size="12" fill="#111827">Smartphone Z5</text>
+      <text x="720" y="670" font-family="'Segoe UI', Arial, sans-serif" font-size="12" fill="#374151">287</text>
+      <text x="900" y="670" font-family="'Segoe UI', Arial, sans-serif" font-size="12" fill="#374151">$316,700</text>
+      <rect x="1030" y="658" width="50" height="18" rx="4" fill="#dcfce7"/>
+      <text x="1055" y="670" font-family="'Segoe UI', Arial, sans-serif" font-size="11" font-weight="600" fill="#10b981" text-anchor="middle">↑ 8%</text>
+      
+      <!-- Row 3 -->
+      <text x="420" y="700" font-family="'Segoe UI', Arial, sans-serif" font-size="12" fill="#111827">Tablet Air 2</text>
+      <text x="720" y="700" font-family="'Segoe UI', Arial, sans-serif" font-size="12" fill="#374151">195</text>
+      <text x="900" y="700" font-family="'Segoe UI', Arial, sans-serif" font-size="12" fill="#374151">$175,500</text>
+      <rect x="1030" y="688" width="50" height="18" rx="4" fill="#fee2e2"/>
+      <text x="1055" y="700" font-family="'Segoe UI', Arial, sans-serif" font-size="11" font-weight="600" fill="#ef4444" text-anchor="middle">↓ 3%</text>
+      
+      <!-- Row 4 -->
+      <text x="420" y="730" font-family="'Segoe UI', Arial, sans-serif" font-size="12" fill="#111827">Audífonos Pro</text>
+      <text x="720" y="730" font-family="'Segoe UI', Arial, sans-serif" font-size="12" fill="#374151">178</text>
+      <text x="900" y="730" font-family="'Segoe UI', Arial, sans-serif" font-size="12" fill="#374151">$53,400</text>
+      <rect x="1030" y="718" width="50" height="18" rx="4" fill="#dcfce7"/>
+      <text x="1055" y="730" font-family="'Segoe UI', Arial, sans-serif" font-size="11" font-weight="600" fill="#10b981" text-anchor="middle">↑ 5%</text>
+      
+      <!-- Row 5 -->
+      <text x="420" y="760" font-family="'Segoe UI', Arial, sans-serif" font-size="12" fill="#111827">Reloj Smart V3</text>
+      <text x="720" y="760" font-family="'Segoe UI', Arial, sans-serif" font-size="12" fill="#374151">152</text>
+      <text x="900" y="760" font-family="'Segoe UI', Arial, sans-serif" font-size="12" fill="#374151">$60,800</text>
+      <rect x="1030" y="748" width="50" height="18" rx="4" fill="#dcfce7"/>
+      <text x="1055" y="760" font-family="'Segoe UI', Arial, sans-serif" font-size="11" font-weight="600" fill="#10b981" text-anchor="middle">↑ 15%</text>
+    </g>
+
+  </g>
+
+  <!-- Footer timestamp -->
+  <text x="1270" y="885" font-family="'Segoe UI', Arial, sans-serif" font-size="10" fill="#9ca3af" text-anchor="end">Actualizado: 14 Ene 2026, 10:45</text>
+</svg>
