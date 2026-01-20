@@ -153,6 +153,7 @@ document.querySelectorAll('.nav-link').forEach(link => {
 // Header scroll effect
 let lastScroll = 0;
 const header = document.querySelector('.header');
+const navbar = document.querySelector('.navbar');
 
 function isDarkModeActive() {
     const htmlTheme = document.documentElement.getAttribute('data-theme');
@@ -163,6 +164,15 @@ function isDarkModeActive() {
 
 window.addEventListener('scroll', () => {
     const currentScroll = window.pageYOffset;
+    
+    // Add scrolled class to navbar on mobile
+    if (navbar) {
+        if (currentScroll > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    }
     
     if (header) {
         const dark = isDarkModeActive();
