@@ -1371,6 +1371,26 @@ a {
     color: #cbd5e1;
 }
 
+/* Highlighted text in dark mode */
+:is(html[data-theme="dark"], html:has(#themeToggle:checked)) .vision-intro .text-highlight {
+    color: #00d9ff;
+}
+
+:is(html[data-theme="dark"], html:has(#themeToggle:checked)) .vision-intro .text-accent {
+    color: #00c2ff;
+}
+
+:is(html[data-theme="dark"], html:has(#themeToggle:checked)) .vision-intro .text-primary {
+    color: #00d9ff;
+}
+
+:is(html[data-theme="dark"], html:has(#themeToggle:checked)) .vision-intro .text-brand {
+    background: linear-gradient(135deg, #00d9ff 0%, #60a5fa 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
 :is(html[data-theme="dark"], html:has(#themeToggle:checked)) .section-tagline {
     color: #cbd5e1;
     opacity: 0.9;
@@ -1855,6 +1875,31 @@ a {
     font-size: 1.08rem;
     line-height: 1.8;
     color: #52525b;
+}
+
+/* Highlighted text styles for vision section */
+.vision-intro .text-highlight {
+    color: #00a6e8;
+    font-weight: 700;
+}
+
+.vision-intro .text-accent {
+    color: #0088cc;
+    font-weight: 700;
+}
+
+.vision-intro .text-primary {
+    color: #00a6e8;
+    font-weight: 700;
+}
+
+.vision-intro .text-brand {
+    color: #00a6e8;
+    font-weight: 800;
+    background: linear-gradient(135deg, #00a6e8 0%, #00c2ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .vision .values-grid {

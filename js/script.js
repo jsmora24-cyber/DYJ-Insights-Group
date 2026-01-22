@@ -533,6 +533,10 @@ function initPortfolioCarousel() {
     }
 
     function animateScrollTo(left, durationMs = 600) {
+        // Detect mobile for smoother, faster animation
+        const isMobile = window.innerWidth <= 768;
+        const mobileDuration = isMobile ? 350 : durationMs; // Faster and smoother on mobile
+        
         const target = left;
         const startLeft = viewport.scrollLeft;
         const delta = target - startLeft;
@@ -546,11 +550,13 @@ function initPortfolioCarousel() {
                 if (token !== scrollAnimToken) return resolve();
 
                 const elapsed = now - start;
-                const t = Math.min(1, Math.max(0, elapsed / durationMs));
-                // Material Design cubic-bezier - smooth without overshoot
-                const eased = t < 0.5
-                    ? 2 * t * t
-                    : 1 - Math.pow(-2 * t + 2, 2) / 2;
+                const t = Math.min(1, Math.max(0, elapsed / mobileDuration));
+                
+                // Use smoother easing for mobile - ease-out-quart
+                const eased = isMobile 
+                    ? 1 - Math.pow(1 - t, 4)  // Ease-out-quart: very smooth deceleration
+                    : (t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2);
+                
                 viewport.scrollLeft = startLeft + delta * eased;
 
                 if (t >= 1) return resolve();
@@ -920,44 +926,49 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Mission section scroll indicators
 function initMissionScrollIndicators() {
-    const valuesGrid = document.querySelector('.mission .values-grid');
-    const dots = document.querySelectorAll('.scroll-indicators .dot');
+    // Find all mission sections (index.html and acerca-de.html)
+    const missionSections = document.querySelectorAll('.mission');
     
-    if (!valuesGrid || dots.length === 0) return;
-    
-    let scrollTimer;
-    
-    valuesGrid.addEventListener('scroll', () => {
-        if (scrollTimer) clearTimeout(scrollTimer);
+    missionSections.forEach(section => {
+        const valuesGrid = section.querySelector('.values-grid');
+        const dots = section.querySelectorAll('.scroll-indicators .dot');
         
-        scrollTimer = setTimeout(() => {
-            const scrollLeft = valuesGrid.scrollLeft;
-            const cardWidth = valuesGrid.querySelector('.value-card')?.offsetWidth || 0;
-            const gap = 24; // 1.5rem
-            const scrollWidth = cardWidth + gap;
+        if (!valuesGrid || dots.length === 0) return;
+        
+        let scrollTimer;
+        
+        valuesGrid.addEventListener('scroll', () => {
+            if (scrollTimer) clearTimeout(scrollTimer);
             
-            const currentIndex = Math.round(scrollLeft / scrollWidth);
-            
-            dots.forEach((dot, index) => {
-                if (index === currentIndex) {
-                    dot.classList.add('active');
-                } else {
-                    dot.classList.remove('active');
-                }
-            });
-        }, 100);
-    }, { passive: true });
-    
-    // Click on dots to scroll to that card
-    dots.forEach((dot, index) => {
-        dot.addEventListener('click', () => {
-            const cardWidth = valuesGrid.querySelector('.value-card')?.offsetWidth || 0;
-            const gap = 24;
-            const scrollWidth = cardWidth + gap;
-            
-            valuesGrid.scrollTo({
-                left: index * scrollWidth,
-                behavior: 'smooth'
+            scrollTimer = setTimeout(() => {
+                const scrollLeft = valuesGrid.scrollLeft;
+                const cardWidth = valuesGrid.querySelector('.value-card')?.offsetWidth || 0;
+                const gap = 24; // 1.5rem
+                const scrollWidth = cardWidth + gap;
+                
+                const currentIndex = Math.round(scrollLeft / scrollWidth);
+                
+                dots.forEach((dot, index) => {
+                    if (index === currentIndex) {
+                        dot.classList.add('active');
+                    } else {
+                        dot.classList.remove('active');
+                    }
+                });
+            }, 100);
+        }, { passive: true });
+        
+        // Click on dots to scroll to that card
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                const cardWidth = valuesGrid.querySelector('.value-card')?.offsetWidth || 0;
+                const gap = 24;
+                const scrollWidth = cardWidth + gap;
+                
+                valuesGrid.scrollTo({
+                    left: index * scrollWidth,
+                    behavior: 'smooth'
+                });
             });
         });
     });
