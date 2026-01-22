@@ -1,6 +1,15 @@
 // Theme (Light / Dark)
 const THEME_STORAGE_KEY = 'theme';
 
+// Detect if current page is home page and add class to body
+(function() {
+    const currentPath = window.location.pathname;
+    const isHomePage = currentPath === '/' || currentPath === '/index.html' || currentPath.endsWith('/index.html');
+    if (isHomePage) {
+        document.body.classList.add('home-page');
+    }
+})();
+
 function getStoredTheme() {
     try {
         return localStorage.getItem(THEME_STORAGE_KEY);
@@ -23,6 +32,13 @@ function applyTheme(theme) {
     const safeTheme = theme === 'dark' ? 'dark' : 'light';
     document.documentElement.setAttribute('data-theme', safeTheme);
     document.documentElement.style.colorScheme = safeTheme;
+    
+    // Add/remove dark-mode class on body for navbar styling
+    if (safeTheme === 'dark') {
+        document.body.classList.add('dark-mode');
+    } else {
+        document.body.classList.remove('dark-mode');
+    }
 }
 
 function getTranslationValue(lang, key, fallback) {
@@ -899,4 +915,50 @@ function initPortfolioCarousel() {
 
 document.addEventListener('DOMContentLoaded', () => {
     initPortfolioCarousel();
+    initMissionScrollIndicators();
 });
+
+// Mission section scroll indicators
+function initMissionScrollIndicators() {
+    const valuesGrid = document.querySelector('.mission .values-grid');
+    const dots = document.querySelectorAll('.scroll-indicators .dot');
+    
+    if (!valuesGrid || dots.length === 0) return;
+    
+    let scrollTimer;
+    
+    valuesGrid.addEventListener('scroll', () => {
+        if (scrollTimer) clearTimeout(scrollTimer);
+        
+        scrollTimer = setTimeout(() => {
+            const scrollLeft = valuesGrid.scrollLeft;
+            const cardWidth = valuesGrid.querySelector('.value-card')?.offsetWidth || 0;
+            const gap = 24; // 1.5rem
+            const scrollWidth = cardWidth + gap;
+            
+            const currentIndex = Math.round(scrollLeft / scrollWidth);
+            
+            dots.forEach((dot, index) => {
+                if (index === currentIndex) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+        }, 100);
+    }, { passive: true });
+    
+    // Click on dots to scroll to that card
+    dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+            const cardWidth = valuesGrid.querySelector('.value-card')?.offsetWidth || 0;
+            const gap = 24;
+            const scrollWidth = cardWidth + gap;
+            
+            valuesGrid.scrollTo({
+                left: index * scrollWidth,
+                behavior: 'smooth'
+            });
+        });
+    });
+}

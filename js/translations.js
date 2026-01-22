@@ -38,6 +38,7 @@ const translations = {
         
         // Values Section
         mission_title: "Nuestra Misión",
+        scroll_hint: "<i class=\"fas fa-hand-pointer\"></i> Desliza para ver más",
         value1_title: "Innovación Constante",
         value1_desc: "Nos mantenemos a la vanguardia de las últimas tecnologías y tendencias en análisis de datos. Implementamos soluciones innovadoras que anticipan las necesidades del mercado y transforman la manera en que su empresa entiende y utiliza sus datos para mantener una ventaja competitiva.",
         value2_title: "Calidad y Confiabilidad",
@@ -210,6 +211,7 @@ const translations = {
         
         // Values Section
         mission_title: "Our Mission",
+        scroll_hint: "<i class=\"fas fa-hand-pointer\"></i> Swipe to see more",
         value1_title: "Constant Innovation",
         value1_desc: "We stay at the forefront of the latest technologies and trends in data analysis. We implement innovative solutions that anticipate market needs and transform how your company understands and uses its data to maintain a competitive edge.",
         value2_title: "Quality and Reliability",
