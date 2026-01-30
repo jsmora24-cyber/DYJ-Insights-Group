@@ -5,29 +5,24 @@ const THEME_STORAGE_KEY = 'theme';
 (function() {
     const currentPath = window.location.pathname;
     const isHomePage = currentPath === '/' || currentPath === '/index.html' || currentPath.endsWith('/index.html');
-        if (isMobile) {
-            if (currentIndex === 0 && dir === -1) {
-                ignoreScrollEvent = true;
-                nextReal = middleSlides.length - 1;
-                // Forzar centrado exacto y limpiar animaciones
-                scrollAnimToken++;
-                setActive(nextReal);
-                viewport.scrollLeft = getTargetScrollLeftForSlide(middleSlides[nextReal]);
-                centerSlide(middleSlides[nextReal], 'auto');
-                setTimeout(() => { ignoreScrollEvent = false; }, 80);
-                return;
-            }
-            if (currentIndex === middleSlides.length - 1 && dir === 1) {
-                ignoreScrollEvent = true;
-                nextReal = 0;
-                scrollAnimToken++;
-                setActive(nextReal);
-                viewport.scrollLeft = getTargetScrollLeftForSlide(middleSlides[nextReal]);
-                centerSlide(middleSlides[nextReal], 'auto');
-                setTimeout(() => { ignoreScrollEvent = false; }, 80);
-                return;
-            }
-        }
+    if (isHomePage) {
+        document.body.classList.add('home-page');
+    }
+})();
+
+function getStoredTheme() {
+    try {
+        return localStorage.getItem(THEME_STORAGE_KEY);
+    } catch {
+        return null;
+    }
+}
+
+function getSystemTheme() {
+    return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        ? 'dark'
+        : 'light';
+}
 
 function getInitialTheme() {
     return getStoredTheme() || getSystemTheme();
@@ -895,19 +890,15 @@ function initPortfolioCarousel() {
             const realIdx = Number(centered.getAttribute('data-real-index') || '0');
             if (realIdx === 0 && viewport.scrollLeft < centered.offsetLeft) {
                 ignoreScrollEvent = true;
-                scrollAnimToken++;
-                setActive(middleSlides.length - 1);
                 viewport.scrollLeft = getTargetScrollLeftForSlide(middleSlides[middleSlides.length - 1]);
-                centerSlide(middleSlides[middleSlides.length - 1], 'auto');
+                setActive(middleSlides.length - 1);
                 setTimeout(() => { ignoreScrollEvent = false; }, 80);
                 return;
             }
             if (realIdx === middleSlides.length - 1 && viewport.scrollLeft > centered.offsetLeft) {
                 ignoreScrollEvent = true;
-                scrollAnimToken++;
-                setActive(0);
                 viewport.scrollLeft = getTargetScrollLeftForSlide(middleSlides[0]);
-                centerSlide(middleSlides[0], 'auto');
+                setActive(0);
                 setTimeout(() => { ignoreScrollEvent = false; }, 80);
                 return;
             }
@@ -916,10 +907,8 @@ function initPortfolioCarousel() {
                 const target = middleSlides[realIdx];
                 if (target) {
                     ignoreScrollEvent = true;
-                    scrollAnimToken++;
-                    setActive(realIdx);
                     viewport.scrollLeft = getTargetScrollLeftForSlide(target);
-                    centerSlide(target, 'auto');
+                    setActive(realIdx);
                     setTimeout(() => { ignoreScrollEvent = false; }, 80);
                 }
                 return;
