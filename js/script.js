@@ -861,10 +861,9 @@ function initPortfolioCarousel() {
         if (!drag.active) return;
         drag.active = false;
         if (scrollTimer) window.clearTimeout(scrollTimer);
-        // --- INICIO LOOP CIRCULAR TOUCH EN DRAG SOLO EN MÓVIL ---
-        const isMobile = window.matchMedia('(max-width: 480px)').matches;
+        // --- INICIO LOOP CIRCULAR TOUCH EN DRAG ---
         const centered = getCenteredSlide();
-        if (centered && isMobile) {
+        if (centered) {
             const set = centered.getAttribute('data-set');
             const realIdx = Number(centered.getAttribute('data-real-index') || '0');
             if (set !== 'middle') {
@@ -884,25 +883,12 @@ function initPortfolioCarousel() {
                 return;
             }
         }
-        // --- FIN LOOP CIRCULAR TOUCH EN DRAG SOLO EN MÓVIL ---
+        // --- FIN LOOP CIRCULAR TOUCH EN DRAG ---
         scrollTimer = window.setTimeout(() => {
             isInteracting = false;
             const centered = getCenteredSlide();
             if (!centered) return;
             const realIdx = Number(centered.getAttribute('data-real-index') || '0');
-            const set = centered.getAttribute('data-set');
-            if (realIdx === 0 && viewport.scrollLeft < centered.offsetLeft) {
-                const last = middleSlides[middleSlides.length - 1];
-                viewport.scrollLeft = getTargetScrollLeftForSlide(last);
-                setActive(middleSlides.length - 1);
-                return;
-            }
-            if (realIdx === middleSlides.length - 1 && viewport.scrollLeft > centered.offsetLeft) {
-                const first = middleSlides[0];
-                viewport.scrollLeft = getTargetScrollLeftForSlide(first);
-                setActive(0);
-                return;
-            }
             setActive(realIdx);
             centerSlide(centered, 'smooth');
         }, 120);
@@ -932,33 +918,31 @@ function initPortfolioCarousel() {
         viewport.addEventListener(
             'scroll',
             () => {
-                // --- LOOP INFINITO SOLO EN EXTREMOS Y SOLO EN MÓVIL ---
-                const isMobile = window.matchMedia('(max-width: 480px)').matches;
+                // --- INICIO LOOP CIRCULAR TOUCH ---
                 const centered = getCenteredSlide();
-                if (centered && isMobile) {
-                    const realIdx = Number(centered.getAttribute('data-real-index') || '0');
+                if (centered) {
                     const set = centered.getAttribute('data-set');
-                    if (realIdx === 0 && viewport.scrollLeft < centered.offsetLeft) {
-                        const last = middleSlides[middleSlides.length - 1];
-                        viewport.scrollLeft = getTargetScrollLeftForSlide(last);
-                        setActive(middleSlides.length - 1);
-                        return;
-                    }
-                    if (realIdx === middleSlides.length - 1 && viewport.scrollLeft > centered.offsetLeft) {
-                        const first = middleSlides[0];
-                        viewport.scrollLeft = getTargetScrollLeftForSlide(first);
-                        setActive(0);
-                        return;
-                    }
+                    const realIdx = Number(centered.getAttribute('data-real-index') || '0');
                     if (set !== 'middle') {
-                        const target = middleSlides[realIdx];
-                        if (target) {
-                            viewport.scrollLeft = getTargetScrollLeftForSlide(target);
-                            setActive(realIdx);
+                        // Si el usuario está en el primer slide y va a la izquierda, saltar al último
+                        if (realIdx === 0 && viewport.scrollLeft < centered.offsetLeft) {
+                            const last = middleSlides[middleSlides.length - 1];
+                            viewport.scrollLeft = getTargetScrollLeftForSlide(last);
+                            setActive(middleSlides.length - 1);
+                            return;
                         }
+                        // Si el usuario está en el último y va a la derecha, saltar al primero
+                        if (realIdx === middleSlides.length - 1 && viewport.scrollLeft > centered.offsetLeft) {
+                            const first = middleSlides[0];
+                            viewport.scrollLeft = getTargetScrollLeftForSlide(first);
+                            setActive(0);
+                            return;
+                        }
+                        recenterIfNeeded();
                         return;
                     }
                 }
+                // --- FIN LOOP CIRCULAR TOUCH ---
                 if (isInteracting) return;
                 if (scrollTimer) window.clearTimeout(scrollTimer);
                 scrollTimer = window.setTimeout(() => {
