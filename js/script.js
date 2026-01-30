@@ -922,72 +922,57 @@ function initPortfolioCarousel() {
 
     if (!ARROWS_ONLY) {
         // Keyboard support when the viewport is focused
-        viewport.addEventListener('keydown', (e) => {
-            if (e.key === 'ArrowLeft') {
-                e.preventDefault();
-                goToReal(currentIndex - 1);
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- THEME TOGGLE ---
+            const initialTheme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+            const themeToggleInput = document.getElementById('themeToggle');
+            if (themeToggleInput) {
+                themeToggleInput.checked = initialTheme === 'dark';
+                themeToggleInput.addEventListener('change', () => {
+                    setTheme(themeToggleInput.checked ? 'dark' : 'light');
+                });
             }
-            if (e.key === 'ArrowRight') {
-                e.preventDefault();
-                goToReal(currentIndex + 1);
-            }
-        });
-    }
+            const themeMenu = document.getElementById('themeMenu');
+            document.querySelectorAll('.theme-menu-item[data-theme]').forEach((btn) => {
+                btn.addEventListener('click', () => {
+                    setTheme(btn.dataset.theme);
+                    if (themeMenu) themeMenu.open = false;
+                });
+            });
+            document.addEventListener('click', (e) => {
+                if (!themeMenu || !themeMenu.open) return;
+                if (!themeMenu.contains(e.target)) themeMenu.open = false;
+            });
+            document.addEventListener('keydown', (e) => {
+                if (e.key !== 'Escape') return;
+                if (themeMenu && themeMenu.open) themeMenu.open = false;
+            });
+            syncThemeMenuSelection(initialTheme);
+            updateThemeToggleLabel();
 
-    if (!ARROWS_ONLY) {
-        // Stable update: wait for scrolling to settle, then compute the centered slide.
-        viewport.addEventListener(
-            'scroll',
-            () => {
-                if (ignoreScrollEvent) return;
-                // --- LOOP INFINITO SOLO EN EXTREMOS Y SOLO EN MÓVIL ---
-                const isMobile = window.matchMedia('(max-width: 480px)').matches;
-                const centered = getCenteredSlide();
-                if (centered && isMobile) {
-                    const realIdx = Number(centered.getAttribute('data-real-index') || '0');
-                    const set = centered.getAttribute('data-set');
-                    // Carrusel NO infinito en móvil: solo recentrar si caemos en un clon
-                    if (set !== 'middle') {
-                        const target = middleSlides[realIdx];
-                        if (target) {
-                            ignoreScrollEvent = true;
-                            viewport.scrollLeft = getTargetScrollLeftForSlide(target);
-                            setActive(realIdx);
-                            setTimeout(() => { ignoreScrollEvent = false; }, 80);
-                        }
-                        return;
+            // --- MOBILE MENU ---
+            const hamburger = document.querySelector('.hamburger');
+            const navMenu = document.querySelector('.nav-menu');
+            if (hamburger && navMenu) {
+                hamburger.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    navMenu.classList.toggle('active');
+                    hamburger.classList.toggle('active');
+                });
+                navMenu.addEventListener('click', (e) => {
+                    if (e.target === navMenu) {
+                        navMenu.classList.remove('active');
+                        hamburger.classList.remove('active');
                     }
-                }
-                if (isInteracting) return;
-                if (scrollTimer) window.clearTimeout(scrollTimer);
-                scrollTimer = window.setTimeout(() => {
-                    if (isJumping) return;
-                    const centered = getCenteredSlide();
-                    if (!centered) return;
-                    const realIdx = Number(centered.getAttribute('data-real-index') || '0');
-                    setActive(realIdx);
-                    // Gentle snap after manual scrollbar / touch scroll
-                    centerSlide(centered, 'smooth');
-                }, 140);
-            },
-            { passive: true }
-        );
-        // Flag para bloquear eventos de scroll durante saltos atómicos
-        let ignoreScrollEvent = false;
-    }
-
-    // Start centered on the first slide in the middle set
-    setActive(0);
-    centerSlide(middleSlides[0], 'auto');
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-    initPortfolioCarousel();
-    initMissionScrollIndicators();
-});
-
-// Mission section scroll indicators
-function initMissionScrollIndicators() {
+                });
+            }
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', () => {
+                    if (navMenu) navMenu.classList.remove('active');
+                    if (hamburger) hamburger.classList.remove('active');
+                });
+            });
+        });
     // Find all mission sections (index.html and acerca-de.html)
     const missionSections = document.querySelectorAll('.mission');
     
