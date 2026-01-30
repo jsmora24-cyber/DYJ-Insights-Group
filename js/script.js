@@ -741,20 +741,16 @@ function initPortfolioCarousel() {
         if (isMobile) {
             if (currentIndex === 0 && dir === -1) {
                 // Ir al último
-                ignoreScrollEvent = true;
                 nextReal = middleSlides.length - 1;
                 setActive(nextReal);
                 centerSlide(middleSlides[nextReal], 'auto');
-                setTimeout(() => { ignoreScrollEvent = false; }, 80);
                 return;
             }
             if (currentIndex === middleSlides.length - 1 && dir === 1) {
                 // Ir al primero
-                ignoreScrollEvent = true;
                 nextReal = 0;
                 setActive(nextReal);
                 centerSlide(middleSlides[nextReal], 'auto');
-                setTimeout(() => { ignoreScrollEvent = false; }, 80);
                 return;
             }
         }
@@ -882,34 +878,30 @@ function initPortfolioCarousel() {
         if (!drag.active) return;
         drag.active = false;
         if (scrollTimer) window.clearTimeout(scrollTimer);
-        // --- LOOP CIRCULAR TOUCH SOLO EN MÓVIL, salto atómico y bloqueo de scroll ---
+        // --- LOOP CIRCULAR TOUCH SOLO EN MÓVIL, salto atómico ---
         const isMobile = window.matchMedia('(max-width: 480px)').matches;
         const centered = getCenteredSlide();
         if (centered && isMobile) {
             const set = centered.getAttribute('data-set');
             const realIdx = Number(centered.getAttribute('data-real-index') || '0');
             if (realIdx === 0 && viewport.scrollLeft < centered.offsetLeft) {
-                ignoreScrollEvent = true;
+                // Ir al último
                 viewport.scrollLeft = getTargetScrollLeftForSlide(middleSlides[middleSlides.length - 1]);
                 setActive(middleSlides.length - 1);
-                setTimeout(() => { ignoreScrollEvent = false; }, 80);
                 return;
             }
             if (realIdx === middleSlides.length - 1 && viewport.scrollLeft > centered.offsetLeft) {
-                ignoreScrollEvent = true;
+                // Ir al primero
                 viewport.scrollLeft = getTargetScrollLeftForSlide(middleSlides[0]);
                 setActive(0);
-                setTimeout(() => { ignoreScrollEvent = false; }, 80);
                 return;
             }
             if (set !== 'middle') {
                 // Recentrar si por alguna razón caímos en un clon
                 const target = middleSlides[realIdx];
                 if (target) {
-                    ignoreScrollEvent = true;
                     viewport.scrollLeft = getTargetScrollLeftForSlide(target);
                     setActive(realIdx);
-                    setTimeout(() => { ignoreScrollEvent = false; }, 80);
                 }
                 return;
             }
@@ -961,7 +953,6 @@ function initPortfolioCarousel() {
         viewport.addEventListener(
             'scroll',
             () => {
-                if (ignoreScrollEvent) return;
                 // --- LOOP INFINITO SOLO EN EXTREMOS Y SOLO EN MÓVIL ---
                 const isMobile = window.matchMedia('(max-width: 480px)').matches;
                 const centered = getCenteredSlide();
@@ -969,28 +960,22 @@ function initPortfolioCarousel() {
                     const realIdx = Number(centered.getAttribute('data-real-index') || '0');
                     const set = centered.getAttribute('data-set');
                     if (realIdx === 0 && viewport.scrollLeft < centered.offsetLeft) {
-                        ignoreScrollEvent = true;
                         const last = middleSlides[middleSlides.length - 1];
                         viewport.scrollLeft = getTargetScrollLeftForSlide(last);
                         setActive(middleSlides.length - 1);
-                        setTimeout(() => { ignoreScrollEvent = false; }, 80);
                         return;
                     }
                     if (realIdx === middleSlides.length - 1 && viewport.scrollLeft > centered.offsetLeft) {
-                        ignoreScrollEvent = true;
                         const first = middleSlides[0];
                         viewport.scrollLeft = getTargetScrollLeftForSlide(first);
                         setActive(0);
-                        setTimeout(() => { ignoreScrollEvent = false; }, 80);
                         return;
                     }
                     if (set !== 'middle') {
                         const target = middleSlides[realIdx];
                         if (target) {
-                            ignoreScrollEvent = true;
                             viewport.scrollLeft = getTargetScrollLeftForSlide(target);
                             setActive(realIdx);
-                            setTimeout(() => { ignoreScrollEvent = false; }, 80);
                         }
                         return;
                     }
@@ -1009,8 +994,6 @@ function initPortfolioCarousel() {
             },
             { passive: true }
         );
-        // Flag para bloquear eventos de scroll durante saltos atómicos
-        let ignoreScrollEvent = false;
     }
 
     // Start centered on the first slide in the middle set
