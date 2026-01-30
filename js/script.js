@@ -740,26 +740,12 @@ function initPortfolioCarousel() {
     function goStep(dir) {
         if (isArrowAnimating) return;
 
-        // Navegación infinita robusta SOLO en móvil
+        // Carrusel NO infinito en móvil
         const isMobile = window.matchMedia('(max-width: 480px)').matches;
         let nextReal = clampLoopIndex(currentIndex + dir);
         if (isMobile) {
-            if (currentIndex === 0 && dir === -1) {
-                // Ir al último
-                ignoreScrollEvent = true;
-                nextReal = middleSlides.length - 1;
-                setActive(nextReal);
-                centerSlide(middleSlides[nextReal], 'auto');
-                setTimeout(() => { ignoreScrollEvent = false; }, 80);
-                return;
-            }
-            if (currentIndex === middleSlides.length - 1 && dir === 1) {
-                // Ir al primero
-                ignoreScrollEvent = true;
-                nextReal = 0;
-                setActive(nextReal);
-                centerSlide(middleSlides[nextReal], 'auto');
-                setTimeout(() => { ignoreScrollEvent = false; }, 80);
+            if ((currentIndex === 0 && dir === -1) || (currentIndex === middleSlides.length - 1 && dir === 1)) {
+                // No hacer nada, ya estamos en el extremo
                 return;
             }
         }
@@ -887,32 +873,13 @@ function initPortfolioCarousel() {
         if (!drag.active) return;
         drag.active = false;
         if (scrollTimer) window.clearTimeout(scrollTimer);
-        // --- LOOP CIRCULAR TOUCH SOLO EN MÓVIL, salto atómico y bloqueo de scroll ---
+        // Carrusel NO infinito en móvil: solo recentrar si caemos en un clon
         const isMobile = window.matchMedia('(max-width: 480px)').matches;
         const centered = getCenteredSlide();
         if (centered && isMobile) {
             const set = centered.getAttribute('data-set');
             const realIdx = Number(centered.getAttribute('data-real-index') || '0');
-            if (realIdx === 0 && viewport.scrollLeft < centered.offsetLeft) {
-                ignoreScrollEvent = true;
-                scrollAnimToken++;
-                setActive(middleSlides.length - 1);
-                viewport.scrollLeft = getTargetScrollLeftForSlide(middleSlides[middleSlides.length - 1]);
-                centerSlide(middleSlides[middleSlides.length - 1], 'auto');
-                setTimeout(() => { ignoreScrollEvent = false; }, 80);
-                return;
-            }
-            if (realIdx === middleSlides.length - 1 && viewport.scrollLeft > centered.offsetLeft) {
-                ignoreScrollEvent = true;
-                scrollAnimToken++;
-                setActive(0);
-                viewport.scrollLeft = getTargetScrollLeftForSlide(middleSlides[0]);
-                centerSlide(middleSlides[0], 'auto');
-                setTimeout(() => { ignoreScrollEvent = false; }, 80);
-                return;
-            }
             if (set !== 'middle') {
-                // Recentrar si por alguna razón caímos en un clon
                 const target = middleSlides[realIdx];
                 if (target) {
                     ignoreScrollEvent = true;
@@ -979,22 +946,7 @@ function initPortfolioCarousel() {
                 if (centered && isMobile) {
                     const realIdx = Number(centered.getAttribute('data-real-index') || '0');
                     const set = centered.getAttribute('data-set');
-                    if (realIdx === 0 && viewport.scrollLeft < centered.offsetLeft) {
-                        ignoreScrollEvent = true;
-                        const last = middleSlides[middleSlides.length - 1];
-                        viewport.scrollLeft = getTargetScrollLeftForSlide(last);
-                        setActive(middleSlides.length - 1);
-                        setTimeout(() => { ignoreScrollEvent = false; }, 80);
-                        return;
-                    }
-                    if (realIdx === middleSlides.length - 1 && viewport.scrollLeft > centered.offsetLeft) {
-                        ignoreScrollEvent = true;
-                        const first = middleSlides[0];
-                        viewport.scrollLeft = getTargetScrollLeftForSlide(first);
-                        setActive(0);
-                        setTimeout(() => { ignoreScrollEvent = false; }, 80);
-                        return;
-                    }
+                    // Carrusel NO infinito en móvil: solo recentrar si caemos en un clon
                     if (set !== 'middle') {
                         const target = middleSlides[realIdx];
                         if (target) {
