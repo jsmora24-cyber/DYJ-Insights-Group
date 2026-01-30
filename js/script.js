@@ -900,9 +900,21 @@ function initPortfolioCarousel() {
                 if (scrollTimer) window.clearTimeout(scrollTimer);
                 scrollTimer = window.setTimeout(() => {
                     if (isJumping) return;
-                    recenterIfNeeded();
+                    // --- INICIO PARCHE INFINITE LOOP TOUCH ---
                     const centered = getCenteredSlide();
                     if (!centered) return;
+                    const set = centered.getAttribute('data-set');
+                    if (set !== 'middle') {
+                        recenterIfNeeded();
+                        // Después de recenter, actualizar el centered y realIdx
+                        const newCentered = getCenteredSlide();
+                        if (!newCentered) return;
+                        const realIdx = Number(newCentered.getAttribute('data-real-index') || '0');
+                        setActive(realIdx);
+                        centerSlide(newCentered, 'auto');
+                        return;
+                    }
+                    // --- FIN PARCHE INFINITE LOOP TOUCH ---
                     const realIdx = Number(centered.getAttribute('data-real-index') || '0');
                     setActive(realIdx);
                     // Gentle snap after manual scrollbar / touch scroll
