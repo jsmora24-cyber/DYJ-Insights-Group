@@ -735,8 +735,25 @@ function initPortfolioCarousel() {
     function goStep(dir) {
         if (isArrowAnimating) return;
 
-        // Strictly sequential by the real index.
-        const nextReal = clampLoopIndex(currentIndex + dir);
+        // Navegación infinita robusta SOLO en móvil
+        const isMobile = window.matchMedia('(max-width: 480px)').matches;
+        let nextReal = clampLoopIndex(currentIndex + dir);
+        if (isMobile) {
+            if (currentIndex === 0 && dir === -1) {
+                // Ir al último
+                nextReal = middleSlides.length - 1;
+                setActive(nextReal);
+                centerSlide(middleSlides[nextReal], 'auto');
+                return;
+            }
+            if (currentIndex === middleSlides.length - 1 && dir === 1) {
+                // Ir al primero
+                nextReal = 0;
+                setActive(nextReal);
+                centerSlide(middleSlides[nextReal], 'auto');
+                return;
+            }
+        }
         const targetEl = middleSlides[nextReal];
         if (!targetEl) return;
 
@@ -806,8 +823,8 @@ function initPortfolioCarousel() {
         }
     }
 
-    if (prevBtn) prevBtn.addEventListener('click', () => (ARROWS_ONLY ? goStep(-1) : goToReal(currentIndex - 1)));
-    if (nextBtn) nextBtn.addEventListener('click', () => (ARROWS_ONLY ? goStep(1) : goToReal(currentIndex + 1)));
+    if (prevBtn) prevBtn.addEventListener('click', () => goStep(-1));
+    if (nextBtn) nextBtn.addEventListener('click', () => goStep(1));
 
     if (!ARROWS_ONLY) {
         // Wheel -> horizontal (trackpad/mouse): makes it feel like a real slider.
@@ -861,30 +878,34 @@ function initPortfolioCarousel() {
         if (!drag.active) return;
         drag.active = false;
         if (scrollTimer) window.clearTimeout(scrollTimer);
-        // --- INICIO LOOP CIRCULAR TOUCH EN DRAG SOLO EN MÓVIL ---
+        // --- LOOP CIRCULAR TOUCH SOLO EN MÓVIL, salto atómico ---
         const isMobile = window.matchMedia('(max-width: 480px)').matches;
         const centered = getCenteredSlide();
         if (centered && isMobile) {
             const set = centered.getAttribute('data-set');
             const realIdx = Number(centered.getAttribute('data-real-index') || '0');
+            if (realIdx === 0 && viewport.scrollLeft < centered.offsetLeft) {
+                // Ir al último
+                viewport.scrollLeft = getTargetScrollLeftForSlide(middleSlides[middleSlides.length - 1]);
+                setActive(middleSlides.length - 1);
+                return;
+            }
+            if (realIdx === middleSlides.length - 1 && viewport.scrollLeft > centered.offsetLeft) {
+                // Ir al primero
+                viewport.scrollLeft = getTargetScrollLeftForSlide(middleSlides[0]);
+                setActive(0);
+                return;
+            }
             if (set !== 'middle') {
-                if (realIdx === 0 && viewport.scrollLeft < centered.offsetLeft) {
-                    const last = middleSlides[middleSlides.length - 1];
-                    viewport.scrollLeft = getTargetScrollLeftForSlide(last);
-                    setActive(middleSlides.length - 1);
-                    return;
+                // Recentrar si por alguna razón caímos en un clon
+                const target = middleSlides[realIdx];
+                if (target) {
+                    viewport.scrollLeft = getTargetScrollLeftForSlide(target);
+                    setActive(realIdx);
                 }
-                if (realIdx === middleSlides.length - 1 && viewport.scrollLeft > centered.offsetLeft) {
-                    const first = middleSlides[0];
-                    viewport.scrollLeft = getTargetScrollLeftForSlide(first);
-                    setActive(0);
-                    return;
-                }
-                recenterIfNeeded();
                 return;
             }
         }
-        // --- FIN LOOP CIRCULAR TOUCH EN DRAG SOLO EN MÓVIL ---
         scrollTimer = window.setTimeout(() => {
             isInteracting = false;
             const centered = getCenteredSlide();
