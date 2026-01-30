@@ -3231,8 +3231,10 @@ html:not([data-theme="dark"]):not(:has(#themeToggle:checked)) .social-btn:hover 
     .image-modal {
         flex-direction: column;
         align-items: center;
-        justify-content: flex-start;
-        padding-top: 32px;
+        justify-content: center;
+        min-height: 100vh;
+        padding-top: 0;
+        padding-bottom: 0;
     }
     .modal-caption-top {
         font-size: 1rem;
