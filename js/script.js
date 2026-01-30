@@ -861,9 +861,15 @@ function initPortfolioCarousel() {
         if (!drag.active) return;
         drag.active = false;
         if (scrollTimer) window.clearTimeout(scrollTimer);
+        // --- INICIO PARCHE INFINITE LOOP TOUCH INMEDIATO EN DRAG ---
+        const centered = getCenteredSlide();
+        if (centered && centered.getAttribute('data-set') !== 'middle') {
+            recenterIfNeeded();
+            return;
+        }
+        // --- FIN PARCHE INFINITE LOOP TOUCH INMEDIATO EN DRAG ---
         scrollTimer = window.setTimeout(() => {
             isInteracting = false;
-            recenterIfNeeded();
             const centered = getCenteredSlide();
             if (!centered) return;
             const realIdx = Number(centered.getAttribute('data-real-index') || '0');
@@ -896,25 +902,19 @@ function initPortfolioCarousel() {
         viewport.addEventListener(
             'scroll',
             () => {
+                // --- INICIO PARCHE INFINITE LOOP TOUCH INMEDIATO ---
+                const centered = getCenteredSlide();
+                if (centered && centered.getAttribute('data-set') !== 'middle') {
+                    recenterIfNeeded();
+                    return;
+                }
+                // --- FIN PARCHE INFINITE LOOP TOUCH INMEDIATO ---
                 if (isInteracting) return;
                 if (scrollTimer) window.clearTimeout(scrollTimer);
                 scrollTimer = window.setTimeout(() => {
                     if (isJumping) return;
-                    // --- INICIO PARCHE INFINITE LOOP TOUCH ---
                     const centered = getCenteredSlide();
                     if (!centered) return;
-                    const set = centered.getAttribute('data-set');
-                    if (set !== 'middle') {
-                        recenterIfNeeded();
-                        // Después de recenter, actualizar el centered y realIdx
-                        const newCentered = getCenteredSlide();
-                        if (!newCentered) return;
-                        const realIdx = Number(newCentered.getAttribute('data-real-index') || '0');
-                        setActive(realIdx);
-                        centerSlide(newCentered, 'auto');
-                        return;
-                    }
-                    // --- FIN PARCHE INFINITE LOOP TOUCH ---
                     const realIdx = Number(centered.getAttribute('data-real-index') || '0');
                     setActive(realIdx);
                     // Gentle snap after manual scrollbar / touch scroll
