@@ -139,35 +139,35 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // Initialize label once DOM is ready (safe for all pages)
-
 document.addEventListener('DOMContentLoaded', () => {
     updateThemeToggleLabel();
+});
 
-    // Mobile Menu Toggle
-    const hamburger = document.querySelector('.hamburger');
-    const navMenu = document.querySelector('.nav-menu');
+// Mobile Menu Toggle
+const hamburger = document.querySelector('.hamburger');
+const navMenu = document.querySelector('.nav-menu');
 
-    if (hamburger && navMenu) {
-        hamburger.addEventListener('click', (e) => {
-            e.stopPropagation();
-            navMenu.classList.toggle('active');
-            hamburger.classList.toggle('active');
-        });
-        // Close menu when clicking outside (on the overlay)
-        navMenu.addEventListener('click', (e) => {
-            if (e.target === navMenu) {
-                navMenu.classList.remove('active');
-                hamburger.classList.remove('active');
-            }
-        });
-    }
+if (hamburger && navMenu) {
+    hamburger.addEventListener('click', (e) => {
+        e.stopPropagation();
+        navMenu.classList.toggle('active');
+        hamburger.classList.toggle('active');
+    });
+    
+    // Close menu when clicking outside (on the overlay)
+    navMenu.addEventListener('click', (e) => {
+        if (e.target === navMenu) {
+            navMenu.classList.remove('active');
+            hamburger.classList.remove('active');
+        }
+    });
+}
 
-    // Close menu when clicking on a link
-    document.querySelectorAll('.nav-link').forEach(link => {
-        link.addEventListener('click', () => {
-            if (navMenu) navMenu.classList.remove('active');
-            if (hamburger) hamburger.classList.remove('active');
-        });
+// Close menu when clicking on a link
+document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+        if (navMenu) navMenu.classList.remove('active');
+        if (hamburger) hamburger.classList.remove('active');
     });
 });
 
