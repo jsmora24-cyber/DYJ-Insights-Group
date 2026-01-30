@@ -2208,12 +2208,14 @@ html:not([data-theme="dark"]):not(:has(#themeToggle:checked)) .portfolio-carouse
     border: 1px solid rgba(0, 0, 0, 0.08);
     background: rgba(0, 0, 0, 0.03);
     transition: none !important;
+    overflow: hidden;
 }
 
 .portfolio-carousel .portfolio-slide .portfolio-image img {
     transform: none;
     opacity: 1;
     object-fit: cover;
+    object-position: center;
     transition: none !important;
     width: 100%;
     height: 100%;
@@ -2326,27 +2328,35 @@ html:not([data-theme="dark"]):not(:has(#themeToggle:checked)) .portfolio-carouse
 
 /* Active slide: give more height to the dashboard image without making the whole card feel taller */
 .portfolio-carousel .portfolio-slide.is-active .portfolio-content {
-    padding: 1rem 1.2rem;
+    padding: 0.7rem 0.9rem;
 }
 
 .portfolio-carousel .portfolio-slide.is-active .portfolio-category {
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.3rem;
+    font-size: 0.65rem;
+    padding: 0.25rem 0.6rem;
 }
 
 .portfolio-carousel .portfolio-slide.is-active .portfolio-content h3 {
-    margin-bottom: 0.5rem;
-    font-size: 1.25rem;
-    line-height: 1.3;
+    margin-bottom: 0.3rem;
+    font-size: 0.95rem;
+    line-height: 1.2;
 }
 
 .portfolio-carousel .portfolio-slide.is-active .portfolio-content p {
-    margin-bottom: 0.75rem;
-    font-size: 0.9rem;
-    line-height: 1.5;
+    margin-bottom: 0.5rem;
+    font-size: 0.75rem;
+    line-height: 1.35;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .portfolio-carousel .portfolio-slide.is-active .portfolio-results {
-    padding-top: 0.75rem;
+    padding-top: 0.5rem;
+    gap: 0.4rem;
 }
 
 .portfolio-carousel .portfolio-slide.is-active:hover {
@@ -2643,8 +2653,8 @@ html:not([data-theme="dark"]):not(:has(#themeToggle:checked)) .portfolio-carouse
 .portfolio-results {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 0.75rem;
-    padding-top: 1.5rem;
+    gap: 0.5rem;
+    padding-top: 0.6rem;
     border-top: 1px solid var(--light-border);
 }
 
@@ -2654,15 +2664,15 @@ html:not([data-theme="dark"]):not(:has(#themeToggle:checked)) .portfolio-carouse
 
 .result-item strong {
     display: block;
-    font-size: 1.65rem;
+    font-size: 1.2rem;
     color: var(--cyan-brand);
-    margin-bottom: 0.35rem;
+    margin-bottom: 0.2rem;
     font-weight: 700;
-    line-height: 1.2;
+    line-height: 1.1;
 }
 
 .result-item span {
-    font-size: 0.8rem;
+    font-size: 0.65rem;
     color: var(--text-muted);
     line-height: 1.3;
 }
@@ -3025,9 +3035,37 @@ html:not([data-theme="dark"]):not(:has(#themeToggle:checked)) .social-btn:hover 
     }
     
     .portfolio-carousel .portfolio-slide.is-active .portfolio-image {
-        height: 200px;
-        min-height: 200px;
-        max-height: 200px;
+        height: 180px;
+        min-height: 180px;
+        max-height: 180px;
+    }
+    
+    .portfolio-carousel .portfolio-slide.is-active .portfolio-content {
+        padding: 0.6rem 0.75rem;
+    }
+    
+    .portfolio-carousel .portfolio-slide.is-active .portfolio-category {
+        font-size: 0.6rem;
+        padding: 0.2rem 0.5rem;
+        margin-bottom: 0.25rem;
+    }
+    
+    .portfolio-carousel .portfolio-slide.is-active .portfolio-content h3 {
+        font-size: 0.85rem;
+        line-height: 1.2;
+        margin-bottom: 0.25rem;
+    }
+    
+    .portfolio-carousel .portfolio-slide.is-active .portfolio-content p {
+        font-size: 0.7rem;
+        line-height: 1.3;
+        margin-bottom: 0.4rem;
+        -webkit-line-clamp: 2;
+    }
+    
+    .portfolio-carousel .portfolio-slide.is-active .portfolio-results {
+        padding-top: 0.4rem;
+        gap: 0.3rem;
     }
     
     .portfolio-carousel .portfolio-slide {
@@ -3039,11 +3077,12 @@ html:not([data-theme="dark"]):not(:has(#themeToggle:checked)) .social-btn:hover 
     }
     
     .result-item strong {
-        font-size: 1.5rem;
+        font-size: 1.1rem;
+        margin-bottom: 0.15rem;
     }
     
     .result-item span {
-        font-size: 0.75rem;
+        font-size: 0.6rem;
     }
 }
 

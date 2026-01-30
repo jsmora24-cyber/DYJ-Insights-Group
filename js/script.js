@@ -533,10 +533,6 @@ function initPortfolioCarousel() {
     }
 
     function animateScrollTo(left, durationMs = 600) {
-        // Detect mobile for smoother, faster animation
-        const isMobile = window.innerWidth <= 768;
-        const mobileDuration = isMobile ? 350 : durationMs; // Faster and smoother on mobile
-        
         const target = left;
         const startLeft = viewport.scrollLeft;
         const delta = target - startLeft;
@@ -550,12 +546,12 @@ function initPortfolioCarousel() {
                 if (token !== scrollAnimToken) return resolve();
 
                 const elapsed = now - start;
-                const t = Math.min(1, Math.max(0, elapsed / mobileDuration));
+                const t = Math.min(1, Math.max(0, elapsed / durationMs));
                 
-                // Use smoother easing for mobile - ease-out-quart
-                const eased = isMobile 
-                    ? 1 - Math.pow(1 - t, 4)  // Ease-out-quart: very smooth deceleration
-                    : (t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2);
+                // Smooth ease-in-out - cubic-bezier(0.4, 0, 0.2, 1)
+                const eased = t < 0.5 
+                    ? 2 * t * t 
+                    : 1 - Math.pow(-2 * t + 2, 2) / 2;
                 
                 viewport.scrollLeft = startLeft + delta * eased;
 
