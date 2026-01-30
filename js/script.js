@@ -922,8 +922,9 @@ function initPortfolioCarousel() {
 
     if (!ARROWS_ONLY) {
         // Keyboard support when the viewport is focused
-        // --- THEME TOGGLE ---
+        // --- INICIALIZACIÓN UI UNIVERSAL ---
         document.addEventListener('DOMContentLoaded', () => {
+            // THEME TOGGLE
             const initialTheme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
             const themeToggleInput = document.getElementById('themeToggle');
             if (themeToggleInput) {
@@ -949,28 +950,28 @@ function initPortfolioCarousel() {
             });
             syncThemeMenuSelection(initialTheme);
             updateThemeToggleLabel();
-        });
 
-        // --- MOBILE MENU ---
-        const hamburger = document.querySelector('.hamburger');
-        const navMenu = document.querySelector('.nav-menu');
-        if (hamburger && navMenu) {
-            hamburger.addEventListener('click', (e) => {
-                e.stopPropagation();
-                navMenu.classList.toggle('active');
-                hamburger.classList.toggle('active');
-            });
-            navMenu.addEventListener('click', (e) => {
-                if (e.target === navMenu) {
-                    navMenu.classList.remove('active');
-                    hamburger.classList.remove('active');
-                }
-            });
-        }
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', () => {
-                if (navMenu) navMenu.classList.remove('active');
-                if (hamburger) hamburger.classList.remove('active');
+            // MOBILE MENU
+            const hamburger = document.querySelector('.hamburger');
+            const navMenu = document.querySelector('.nav-menu');
+            if (hamburger && navMenu) {
+                hamburger.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    navMenu.classList.toggle('active');
+                    hamburger.classList.toggle('active');
+                });
+                navMenu.addEventListener('click', (e) => {
+                    if (e.target === navMenu) {
+                        navMenu.classList.remove('active');
+                        hamburger.classList.remove('active');
+                    }
+                });
+            }
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', () => {
+                    if (navMenu) navMenu.classList.remove('active');
+                    if (hamburger) hamburger.classList.remove('active');
+                });
             });
         });
     // Find all mission sections (index.html and acerca-de.html)
