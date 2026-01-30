@@ -861,13 +861,29 @@ function initPortfolioCarousel() {
         if (!drag.active) return;
         drag.active = false;
         if (scrollTimer) window.clearTimeout(scrollTimer);
-        // --- INICIO PARCHE INFINITE LOOP TOUCH INMEDIATO EN DRAG ---
+        // --- INICIO LOOP CIRCULAR TOUCH EN DRAG ---
         const centered = getCenteredSlide();
-        if (centered && centered.getAttribute('data-set') !== 'middle') {
-            recenterIfNeeded();
-            return;
+        if (centered) {
+            const set = centered.getAttribute('data-set');
+            const realIdx = Number(centered.getAttribute('data-real-index') || '0');
+            if (set !== 'middle') {
+                if (realIdx === 0 && viewport.scrollLeft < centered.offsetLeft) {
+                    const last = middleSlides[middleSlides.length - 1];
+                    viewport.scrollLeft = getTargetScrollLeftForSlide(last);
+                    setActive(middleSlides.length - 1);
+                    return;
+                }
+                if (realIdx === middleSlides.length - 1 && viewport.scrollLeft > centered.offsetLeft) {
+                    const first = middleSlides[0];
+                    viewport.scrollLeft = getTargetScrollLeftForSlide(first);
+                    setActive(0);
+                    return;
+                }
+                recenterIfNeeded();
+                return;
+            }
         }
-        // --- FIN PARCHE INFINITE LOOP TOUCH INMEDIATO EN DRAG ---
+        // --- FIN LOOP CIRCULAR TOUCH EN DRAG ---
         scrollTimer = window.setTimeout(() => {
             isInteracting = false;
             const centered = getCenteredSlide();
@@ -902,13 +918,31 @@ function initPortfolioCarousel() {
         viewport.addEventListener(
             'scroll',
             () => {
-                // --- INICIO PARCHE INFINITE LOOP TOUCH INMEDIATO ---
+                // --- INICIO LOOP CIRCULAR TOUCH ---
                 const centered = getCenteredSlide();
-                if (centered && centered.getAttribute('data-set') !== 'middle') {
-                    recenterIfNeeded();
-                    return;
+                if (centered) {
+                    const set = centered.getAttribute('data-set');
+                    const realIdx = Number(centered.getAttribute('data-real-index') || '0');
+                    if (set !== 'middle') {
+                        // Si el usuario está en el primer slide y va a la izquierda, saltar al último
+                        if (realIdx === 0 && viewport.scrollLeft < centered.offsetLeft) {
+                            const last = middleSlides[middleSlides.length - 1];
+                            viewport.scrollLeft = getTargetScrollLeftForSlide(last);
+                            setActive(middleSlides.length - 1);
+                            return;
+                        }
+                        // Si el usuario está en el último y va a la derecha, saltar al primero
+                        if (realIdx === middleSlides.length - 1 && viewport.scrollLeft > centered.offsetLeft) {
+                            const first = middleSlides[0];
+                            viewport.scrollLeft = getTargetScrollLeftForSlide(first);
+                            setActive(0);
+                            return;
+                        }
+                        recenterIfNeeded();
+                        return;
+                    }
                 }
-                // --- FIN PARCHE INFINITE LOOP TOUCH INMEDIATO ---
+                // --- FIN LOOP CIRCULAR TOUCH ---
                 if (isInteracting) return;
                 if (scrollTimer) window.clearTimeout(scrollTimer);
                 scrollTimer = window.setTimeout(() => {
