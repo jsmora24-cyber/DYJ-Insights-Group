@@ -456,7 +456,7 @@ function initPortfolioCarousel() {
     let isInteracting = false;
     let isArrowAnimating = false;
     let scrollAnimToken = 0;
-    let drag = { active: false, startX: 0, startScrollLeft: 0, moved: false };
+    let drag = { active: false, startX: 0, startScrollLeft: 0 };
     let activeDomEl = null;
 
     function getMiddleEquivalentSlide(slide) {
@@ -844,7 +844,6 @@ function initPortfolioCarousel() {
             // Only primary button
             if (e.button !== 0) return;
             drag.active = true;
-            drag.moved = false;
             isInteracting = true;
             drag.startX = e.clientX;
             drag.startScrollLeft = viewport.scrollLeft;
@@ -854,7 +853,6 @@ function initPortfolioCarousel() {
         viewport.addEventListener('pointermove', (e) => {
             if (!drag.active) return;
             const dx = e.clientX - drag.startX;
-            if (Math.abs(dx) > 5) drag.moved = true;
             viewport.scrollLeft = drag.startScrollLeft - dx;
         });
     }
@@ -869,46 +867,58 @@ function initPortfolioCarousel() {
         if (centered && isMobile) {
             const set = centered.getAttribute('data-set');
             const realIdx = Number(centered.getAttribute('data-real-index') || '0');
-            function endDrag() {
-                if (!drag.active) return;
-                drag.active = false;
-                if (scrollTimer) window.clearTimeout(scrollTimer);
-                const isMobile = window.matchMedia('(max-width: 480px)').matches;
-                const centered = getCenteredSlide();
-                if (!centered) return;
-                const realIdx = Number(centered.getAttribute('data-real-index') || '0');
-                const set = centered.getAttribute('data-set');
-                // --- UMBRAL DE DESLIZAMIENTO (20%) ---
-                const dx = Math.abs(viewport.scrollLeft - drag.startScrollLeft);
-                const threshold = viewport.offsetWidth * 0.2;
-                if (isMobile && drag.moved && dx < threshold) {
-                    // Si el movimiento fue menor al umbral, regresa al slide actual
-                    centerSlide(centered, 'smooth');
-                    setActive(realIdx);
+            if (set !== 'middle') {
+                if (realIdx === 0 && viewport.scrollLeft < centered.offsetLeft) {
+                    const last = middleSlides[middleSlides.length - 1];
+                    viewport.scrollLeft = getTargetScrollLeftForSlide(last);
+                    setActive(middleSlides.length - 1);
                     return;
                 }
-                // --- LOOP INFINITO SOLO EN EXTREMOS Y SOLO EN MÓVIL ---
-                if (isMobile) {
-                    if (realIdx === 0 && viewport.scrollLeft < centered.offsetLeft) {
-                        // Salto instantáneo sin transición
-                        viewport.style.scrollBehavior = 'auto';
-                        const last = middleSlides[middleSlides.length - 1];
-                        viewport.scrollLeft = getTargetScrollLeftForSlide(last);
-                        setTimeout(() => { viewport.style.scrollBehavior = ''; }, 0);
-                        setActive(middleSlides.length - 1);
-                        return;
-                    }
-                    if (realIdx === middleSlides.length - 1 && viewport.scrollLeft > centered.offsetLeft) {
-                        viewport.style.scrollBehavior = 'auto';
-                        const first = middleSlides[0];
-                        viewport.scrollLeft = getTargetScrollLeftForSlide(first);
-                        setTimeout(() => { viewport.style.scrollBehavior = ''; }, 0);
-                        setActive(0);
-                        return;
-                    }
+                if (realIdx === middleSlides.length - 1 && viewport.scrollLeft > centered.offsetLeft) {
+                    const first = middleSlides[0];
+                    viewport.scrollLeft = getTargetScrollLeftForSlide(first);
+                    setActive(0);
+                    return;
                 }
-                setActive(realIdx);
-                centerSlide(centered, 'smooth');
+                recenterIfNeeded();
+                return;
+            }
+        }
+        // --- FIN LOOP CIRCULAR TOUCH EN DRAG SOLO EN MÓVIL ---
+        scrollTimer = window.setTimeout(() => {
+            isInteracting = false;
+            const centered = getCenteredSlide();
+            if (!centered) return;
+            const realIdx = Number(centered.getAttribute('data-real-index') || '0');
+            const set = centered.getAttribute('data-set');
+            if (realIdx === 0 && viewport.scrollLeft < centered.offsetLeft) {
+                const last = middleSlides[middleSlides.length - 1];
+                viewport.scrollLeft = getTargetScrollLeftForSlide(last);
+                setActive(middleSlides.length - 1);
+                return;
+            }
+            if (realIdx === middleSlides.length - 1 && viewport.scrollLeft > centered.offsetLeft) {
+                const first = middleSlides[0];
+                viewport.scrollLeft = getTargetScrollLeftForSlide(first);
+                setActive(0);
+                return;
+            }
+            setActive(realIdx);
+            centerSlide(centered, 'smooth');
+        }, 120);
+    }
+
+    if (!ARROWS_ONLY) {
+        viewport.addEventListener('pointerup', endDrag);
+        viewport.addEventListener('pointercancel', endDrag);
+    }
+
+    if (!ARROWS_ONLY) {
+        // Keyboard support when the viewport is focused
+        viewport.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') {
+                e.preventDefault();
+                goToReal(currentIndex - 1);
             }
             if (e.key === 'ArrowRight') {
                 e.preventDefault();

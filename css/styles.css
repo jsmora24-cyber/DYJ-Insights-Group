@@ -2082,10 +2082,10 @@ a {
     scroll-padding-left: 50%;
     scroll-padding-right: 50%;
     overscroll-behavior-x: contain;
-    touch-action: pan-y;
+    touch-action: none;
     cursor: default;
     min-height: 520px;
-    pointer-events: auto;
+    pointer-events: none;
 }
 
 .portfolio-viewport::-webkit-scrollbar {
