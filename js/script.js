@@ -104,6 +104,7 @@ function setTheme(theme) {
 applyTheme(getInitialTheme());
 
 document.addEventListener('DOMContentLoaded', () => {
+    // --- THEME TOGGLE ---
     const initialTheme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
     const themeToggleInput = document.getElementById('themeToggle');
     if (themeToggleInput) {
@@ -112,8 +113,6 @@ document.addEventListener('DOMContentLoaded', () => {
             setTheme(themeToggleInput.checked ? 'dark' : 'light');
         });
     }
-
-    // Gear dropdown options
     const themeMenu = document.getElementById('themeMenu');
     document.querySelectorAll('.theme-menu-item[data-theme]').forEach((btn) => {
         btn.addEventListener('click', () => {
@@ -121,39 +120,26 @@ document.addEventListener('DOMContentLoaded', () => {
             if (themeMenu) themeMenu.open = false;
         });
     });
-
-    // Close theme menu when clicking outside
     document.addEventListener('click', (e) => {
         if (!themeMenu || !themeMenu.open) return;
         if (!themeMenu.contains(e.target)) themeMenu.open = false;
     });
-
-    // Close theme menu on Escape
     document.addEventListener('keydown', (e) => {
         if (e.key !== 'Escape') return;
         if (themeMenu && themeMenu.open) themeMenu.open = false;
     });
-
-    // Initial active state
     syncThemeMenuSelection(initialTheme);
-});
-
-// Initialize label once DOM is ready (safe for all pages)
-
-document.addEventListener('DOMContentLoaded', () => {
     updateThemeToggleLabel();
 
-    // Mobile Menu Toggle
+    // --- MOBILE MENU ---
     const hamburger = document.querySelector('.hamburger');
     const navMenu = document.querySelector('.nav-menu');
-
     if (hamburger && navMenu) {
         hamburger.addEventListener('click', (e) => {
             e.stopPropagation();
             navMenu.classList.toggle('active');
             hamburger.classList.toggle('active');
         });
-        // Close menu when clicking outside (on the overlay)
         navMenu.addEventListener('click', (e) => {
             if (e.target === navMenu) {
                 navMenu.classList.remove('active');
@@ -161,8 +147,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
-
-    // Close menu when clicking on a link
     document.querySelectorAll('.nav-link').forEach(link => {
         link.addEventListener('click', () => {
             if (navMenu) navMenu.classList.remove('active');
