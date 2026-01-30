@@ -861,29 +861,13 @@ function initPortfolioCarousel() {
         if (!drag.active) return;
         drag.active = false;
         if (scrollTimer) window.clearTimeout(scrollTimer);
-        // --- INICIO LOOP CIRCULAR TOUCH EN DRAG ---
+        // --- INICIO PARCHE INFINITE LOOP TOUCH INMEDIATO EN DRAG ---
         const centered = getCenteredSlide();
-        if (centered) {
-            const set = centered.getAttribute('data-set');
-            const realIdx = Number(centered.getAttribute('data-real-index') || '0');
-            if (set !== 'middle') {
-                if (realIdx === 0 && viewport.scrollLeft < centered.offsetLeft) {
-                    const last = middleSlides[middleSlides.length - 1];
-                    viewport.scrollLeft = getTargetScrollLeftForSlide(last);
-                    setActive(middleSlides.length - 1);
-                    return;
-                }
-                if (realIdx === middleSlides.length - 1 && viewport.scrollLeft > centered.offsetLeft) {
-                    const first = middleSlides[0];
-                    viewport.scrollLeft = getTargetScrollLeftForSlide(first);
-                    setActive(0);
-                    return;
-                }
-                recenterIfNeeded();
-                return;
-            }
+        if (centered && centered.getAttribute('data-set') !== 'middle') {
+            recenterIfNeeded();
+            return;
         }
-        // --- FIN LOOP CIRCULAR TOUCH EN DRAG ---
+        // --- FIN PARCHE INFINITE LOOP TOUCH INMEDIATO EN DRAG ---
         scrollTimer = window.setTimeout(() => {
             isInteracting = false;
             const centered = getCenteredSlide();
@@ -918,31 +902,13 @@ function initPortfolioCarousel() {
         viewport.addEventListener(
             'scroll',
             () => {
-                // --- INICIO LOOP CIRCULAR TOUCH ---
+                // --- INICIO PARCHE INFINITE LOOP TOUCH INMEDIATO ---
                 const centered = getCenteredSlide();
-                if (centered) {
-                    const set = centered.getAttribute('data-set');
-                    const realIdx = Number(centered.getAttribute('data-real-index') || '0');
-                    if (set !== 'middle') {
-                        // Si el usuario está en el primer slide y va a la izquierda, saltar al último
-                        if (realIdx === 0 && viewport.scrollLeft < centered.offsetLeft) {
-                            const last = middleSlides[middleSlides.length - 1];
-                            viewport.scrollLeft = getTargetScrollLeftForSlide(last);
-                            setActive(middleSlides.length - 1);
-                            return;
-                        }
-                        // Si el usuario está en el último y va a la derecha, saltar al primero
-                        if (realIdx === middleSlides.length - 1 && viewport.scrollLeft > centered.offsetLeft) {
-                            const first = middleSlides[0];
-                            viewport.scrollLeft = getTargetScrollLeftForSlide(first);
-                            setActive(0);
-                            return;
-                        }
-                        recenterIfNeeded();
-                        return;
-                    }
+                if (centered && centered.getAttribute('data-set') !== 'middle') {
+                    recenterIfNeeded();
+                    return;
                 }
-                // --- FIN LOOP CIRCULAR TOUCH ---
+                // --- FIN PARCHE INFINITE LOOP TOUCH INMEDIATO ---
                 if (isInteracting) return;
                 if (scrollTimer) window.clearTimeout(scrollTimer);
                 scrollTimer = window.setTimeout(() => {
