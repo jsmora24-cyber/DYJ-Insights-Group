@@ -3186,14 +3186,15 @@ html:not([data-theme="dark"]):not(:has(#themeToggle:checked)) .social-btn:hover 
     }
 }
 
-#modalCaption {
-    margin: auto;
+
+.modal-caption-top {
+    margin: 0 auto;
     display: block;
-    width: 80%;
+    width: 90%;
     max-width: 700px;
     text-align: center;
     color: #fff;
-    padding: 20px 0;
+    padding: 18px 0 10px 0;
     font-size: 1.2rem;
     font-weight: 500;
 }
@@ -3228,20 +3229,20 @@ html:not([data-theme="dark"]):not(:has(#themeToggle:checked)) .social-btn:hover 
 
 @media (max-width: 768px) {
     .modal-content {
-        max-width: 95%;
-        max-height: 80vh;
+        max-width: 98vw;
+        max-height: 60vh;
+        margin-top: 0.5rem;
     }
-    
+    .modal-caption-top {
+        font-size: 1rem;
+        padding: 12px 0 6px 0;
+    }
     .modal-close {
         top: 10px;
         right: 20px;
         font-size: 40px;
     }
-    
-    #modalCaption {
-        font-size: 1rem;
-        padding: 15px 0;
-    }
+}
 }
 
 /* Language Switcher */

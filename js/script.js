@@ -330,11 +330,10 @@ function openImageModal(src, alt) {
     const modal = document.getElementById('imageModal');
     const modalImg = document.getElementById('modalImage');
     const caption = document.getElementById('modalCaption');
-    
     if (modal && modalImg) {
         modal.style.display = 'flex';
         modalImg.src = src.replace('w=800', 'w=1920'); // Load higher resolution
-        caption.innerHTML = alt;
+        if (caption) caption.innerHTML = alt;
         document.body.style.overflow = 'hidden'; // Prevent scrolling
     }
 }
@@ -359,14 +358,18 @@ function initPortfolioCarousel() {
     const carousel = document.querySelector('.portfolio-carousel[data-carousel="portfolio"]');
     if (!carousel) return;
 
-    // Interaction mode: only allow navigation via arrow buttons.
-    const ARROWS_ONLY = true;
+    // Interaction mode: only allow navigation via arrow buttons (desktop/tablet),
+    // pero en móvil (<=480px) se permite swipe/touch scroll.
+    const isMobile = window.matchMedia('(max-width: 480px)').matches;
+    const ARROWS_ONLY = !isMobile;
 
     // Dots should match (and optionally navigate) each real dashboard.
     const DOTS_CLICKABLE = true;
 
     if (ARROWS_ONLY) {
         carousel.classList.add('arrows-only');
+    } else {
+        carousel.classList.remove('arrows-only');
     }
 
     if (DOTS_CLICKABLE) {
